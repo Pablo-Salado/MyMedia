@@ -5,7 +5,8 @@ package logingui;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import db.access.*;
+import db.*;
 /**
  *
  * @author adrig
@@ -35,9 +36,9 @@ public class LoginGUI extends javax.swing.JFrame {
         TextFieldPassword = new javax.swing.JPasswordField();
         JLabelUsuario = new javax.swing.JLabel();
         JLabelPassword = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        BotonSalir = new javax.swing.JLabel();
+        Registro = new javax.swing.JLabel();
+        InicioSesion = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,34 +95,39 @@ public class LoginGUI extends javax.swing.JFrame {
         JLabelPassword.setText("Password");
         PanelDerecha.add(JLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 190, 50));
 
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("X");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        BotonSalir.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 24)); // NOI18N
+        BotonSalir.setForeground(new java.awt.Color(255, 255, 255));
+        BotonSalir.setText("X");
+        BotonSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                BotonSalirMouseClicked(evt);
             }
         });
-        PanelDerecha.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 30, 40));
+        PanelDerecha.add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 30, 40));
 
-        jLabel3.setBackground(new java.awt.Color(186, 79, 84));
-        jLabel3.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("    Registrarse");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        Registro.setBackground(new java.awt.Color(186, 79, 84));
+        Registro.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        Registro.setForeground(new java.awt.Color(255, 255, 255));
+        Registro.setText("    Registrarse");
+        Registro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        Registro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                RegistroMouseClicked(evt);
             }
         });
-        PanelDerecha.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 90, 40));
+        PanelDerecha.add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 90, 40));
 
-        jLabel4.setBackground(new java.awt.Color(186, 79, 84));
-        jLabel4.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("  Iniciar Sesion");
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        PanelDerecha.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 90, 40));
+        InicioSesion.setBackground(new java.awt.Color(186, 79, 84));
+        InicioSesion.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
+        InicioSesion.setForeground(new java.awt.Color(255, 255, 255));
+        InicioSesion.setText("  Iniciar Sesion");
+        InicioSesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        InicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                InicioSesionMouseClicked(evt);
+            }
+        });
+        PanelDerecha.add(InicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 90, 40));
 
         jButton2.setBackground(new java.awt.Color(186, 79, 84));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,20 +163,31 @@ public class LoginGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextFieldUsuarioActionPerformed
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void BotonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSalirMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_BotonSalirMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        //Ir a registro
+    private void RegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistroMouseClicked
+        //Ir a registro 
         this.setVisible(false);
         RegistroGUI reg = new RegistroGUI();
         reg.setVisible(true);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_RegistroMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void InicioSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InicioSesionMouseClicked
+         DBConnectionJDBC conec = DBConnectionJDBC.getInstance();
+         String usuario = TextFieldUsuario.getText();
+         String contra = TextFieldPassword.getText();
+        if(!conec.checkFreeUserName(usuario) && conec.checkPassword(usuario,contra)){
+              this.setVisible(false);
+              RegistroGUI reg = new RegistroGUI();
+              reg.setVisible(true);
+        }
+    }//GEN-LAST:event_InicioSesionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -209,16 +226,16 @@ public class LoginGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BotonSalir;
+    private javax.swing.JLabel InicioSesion;
     private javax.swing.JLabel JLabelPassword;
     private javax.swing.JLabel JLabelUsuario;
     private javax.swing.JPanel PanelDerecha;
     private javax.swing.JPanel PanelIzquierda;
+    private javax.swing.JLabel Registro;
     private javax.swing.JPasswordField TextFieldPassword;
     private javax.swing.JTextField TextFieldUsuario;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

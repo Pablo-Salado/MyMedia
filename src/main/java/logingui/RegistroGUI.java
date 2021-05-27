@@ -5,6 +5,8 @@
  */
 package logingui;
 
+import db.access.*;
+import db.*;
 /**
  *
  * @author adrig
@@ -28,25 +30,26 @@ public class RegistroGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        TextFieldUsuario = new javax.swing.JTextField();
+        TextUsuario = new javax.swing.JTextField();
         JLabelUsuario = new javax.swing.JLabel();
         JLabelPassword = new javax.swing.JLabel();
-        TextFieldPassword = new javax.swing.JPasswordField();
+        TextPassword = new javax.swing.JPasswordField();
         JLabelPassword1 = new javax.swing.JLabel();
-        TextFieldUsuario1 = new javax.swing.JTextField();
+        TextCorreo = new javax.swing.JTextField();
         JLabelPassword2 = new javax.swing.JLabel();
-        TextFieldPassword2 = new javax.swing.JPasswordField();
+        TextConfirm = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(186, 79, 84));
 
-        TextFieldUsuario.setBackground(new java.awt.Color(186, 79, 84));
-        TextFieldUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        TextFieldUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        TextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+        TextUsuario.setBackground(new java.awt.Color(186, 79, 84));
+        TextUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        TextUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        TextUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldUsuarioActionPerformed(evt);
+                TextUsuarioActionPerformed(evt);
             }
         });
 
@@ -59,22 +62,22 @@ public class RegistroGUI extends javax.swing.JFrame {
         JLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         JLabelPassword.setText("Password");
 
-        TextFieldPassword.setBackground(new java.awt.Color(186, 79, 84));
-        TextFieldPassword.setForeground(new java.awt.Color(0, 0, 0));
-        TextFieldPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        TextFieldPassword.setCaretColor(new java.awt.Color(255, 255, 255));
+        TextPassword.setBackground(new java.awt.Color(186, 79, 84));
+        TextPassword.setForeground(new java.awt.Color(0, 0, 0));
+        TextPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        TextPassword.setCaretColor(new java.awt.Color(255, 255, 255));
 
         JLabelPassword1.setBackground(new java.awt.Color(255, 255, 255));
         JLabelPassword1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         JLabelPassword1.setForeground(new java.awt.Color(255, 255, 255));
         JLabelPassword1.setText("Correo Electronico");
 
-        TextFieldUsuario1.setBackground(new java.awt.Color(186, 79, 84));
-        TextFieldUsuario1.setForeground(new java.awt.Color(0, 0, 0));
-        TextFieldUsuario1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        TextFieldUsuario1.addActionListener(new java.awt.event.ActionListener() {
+        TextCorreo.setBackground(new java.awt.Color(186, 79, 84));
+        TextCorreo.setForeground(new java.awt.Color(0, 0, 0));
+        TextCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        TextCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldUsuario1ActionPerformed(evt);
+                TextCorreoActionPerformed(evt);
             }
         });
 
@@ -83,10 +86,20 @@ public class RegistroGUI extends javax.swing.JFrame {
         JLabelPassword2.setForeground(new java.awt.Color(255, 255, 255));
         JLabelPassword2.setText("Confirm Password");
 
-        TextFieldPassword2.setBackground(new java.awt.Color(186, 79, 84));
-        TextFieldPassword2.setForeground(new java.awt.Color(0, 0, 0));
-        TextFieldPassword2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        TextFieldPassword2.setCaretColor(new java.awt.Color(255, 255, 255));
+        TextConfirm.setBackground(new java.awt.Color(186, 79, 84));
+        TextConfirm.setForeground(new java.awt.Color(0, 0, 0));
+        TextConfirm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        TextConfirm.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setBackground(new java.awt.Color(186, 79, 84));
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setText("Registrarse");
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,14 +109,17 @@ public class RegistroGUI extends javax.swing.JFrame {
                 .addGap(84, 84, 84)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JLabelPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextFieldPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextFieldUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLabelPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLabelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(609, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(JLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(254, 254, 254)
+                        .addComponent(jLabel1))
+                    .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,26 +127,27 @@ public class RegistroGUI extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(JLabelPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(TextFieldUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(TextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(JLabelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(TextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1)
+                        .addGap(24, 24, 24)
+                        .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JLabelPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(TextFieldPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                        .addComponent(TextConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,13 +164,32 @@ public class RegistroGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldUsuarioActionPerformed
+    private void TextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldUsuarioActionPerformed
+    }//GEN-LAST:event_TextUsuarioActionPerformed
 
-    private void TextFieldUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldUsuario1ActionPerformed
+    private void TextCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldUsuario1ActionPerformed
+    }//GEN-LAST:event_TextCorreoActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+      DBConnectionJDBC conec = DBConnectionJDBC.getInstance();                                             
+       //Verificar que no esta creado ya el usuario 
+       String user = TextUsuario.getText();
+       String correo = TextCorreo.getText();
+       String password = TextPassword.getText();
+       String passwordConfirm = TextConfirm.getText();
+       
+       if(conec.checkFreeUserName(user) && conec.checkFreeEmail(correo) && password.equals(passwordConfirm)){
+            User usuario = new User(user, correo, password);
+            
+            conec.addUser(usuario);
+                //Crear un nuevo usario 
+                //Insertar Usuario en la base de datos  
+       }
+       
+            
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -195,10 +231,11 @@ public class RegistroGUI extends javax.swing.JFrame {
     private javax.swing.JLabel JLabelPassword1;
     private javax.swing.JLabel JLabelPassword2;
     private javax.swing.JLabel JLabelUsuario;
-    private javax.swing.JPasswordField TextFieldPassword;
-    private javax.swing.JPasswordField TextFieldPassword2;
-    private javax.swing.JTextField TextFieldUsuario;
-    private javax.swing.JTextField TextFieldUsuario1;
+    private javax.swing.JPasswordField TextConfirm;
+    private javax.swing.JTextField TextCorreo;
+    private javax.swing.JPasswordField TextPassword;
+    private javax.swing.JTextField TextUsuario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
