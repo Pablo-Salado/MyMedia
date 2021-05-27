@@ -1,5 +1,8 @@
 package db.access;
-
+/*  @author Andrés Garrido López
+    Clase abstracta para establecer los métodos que interaccionan con la base de datos interna
+    Basado en el github del profesor Jose María Álvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
+*/
 
 import db.User;
 

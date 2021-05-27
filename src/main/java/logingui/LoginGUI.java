@@ -162,7 +162,7 @@ public class LoginGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        //Ir a registro 
+        //Ir a registro
         this.setVisible(false);
         RegistroGUI reg = new RegistroGUI();
         reg.setVisible(true);
