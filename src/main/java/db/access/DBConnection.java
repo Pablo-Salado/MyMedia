@@ -15,7 +15,7 @@ public abstract class DBConnection {
     static final String password = "manzanosalado";
 
 
-    //Methods | add a new user | delete an user | chech password
+    //Methods | add a new user | delete an user | check password
     public abstract void addUser(User user);
     public abstract void deleteUser(User user);
     public abstract boolean checkPassword(String username, String password);
