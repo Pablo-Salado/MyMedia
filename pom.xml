@@ -17,13 +17,11 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.25</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
+        </dependency><!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
         <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE123</version>
         </dependency>
     </dependencies>
-
 </project>
