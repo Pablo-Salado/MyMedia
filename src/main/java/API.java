@@ -7,8 +7,11 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
+import com.mysql.cj.jdbc.SuspendableXAConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import javax.swing.plaf.synth.SynthTextAreaUI;
 
 public class API{
 
@@ -41,9 +44,26 @@ public class API{
                         nombrePelicula = sc.nextLine();
                         System.out.println("El nombre de la peli introducida es: " + nombrePelicula);
 
-                        JSONObject json = readJsonFromUrl("http://www.omdbapi.com/?t=" + nombrePelicula + "&apikey=bbdb735d");
+                        JSONObject json = readJsonFromUrl("https://api.themoviedb.org/3/search/multi?api_key=33890a00119dd4252bba26f546853049&language=es&query="+nombrePelicula+"&page=1&include_adult=false");
+                        JSONObject res;
                         System.out.println(json.toString());
-                        System.out.println(json.names());
+                        //en res almaceno la primera pelicula
+                        res=json.getJSONArray("results").getJSONObject(0);
+                        System.out.println(res.names().toString());
+                        System.out.println(res.get("id"));
+                        int p= Integer.parseInt(res.get("id").toString());
+                        System.out.println("El id de la pelicula en tipo entero es:"+p);
+                        System.out.println("Obtengo la descripccion avanzada de la peli");
+                        if(res.get("media_type").toString().equals("movie")){
+
+                                res=readJsonFromUrl("https://api.themoviedb.org/3/movie/"+p+"?api_key=33890a00119dd4252bba26f546853049&language=en-US");
+
+                        }else{
+                                res=readJsonFromUrl("https://api.themoviedb.org/3/tv/"+p+"?api_key=33890a00119dd4252bba26f546853049&language=en-US");
+                        }
+
+                        System.out.println(res.names().toString());
+
                 }
                 
         }
