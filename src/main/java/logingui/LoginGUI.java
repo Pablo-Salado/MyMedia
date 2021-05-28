@@ -83,7 +83,6 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
         PanelRegistro.setBackground(new java.awt.Color(153, 153, 255));
         PanelRegistro.setForeground(new java.awt.Color(0, 0, 255));
 
