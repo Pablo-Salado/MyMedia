@@ -1,3 +1,5 @@
+package MyMedia.src.main.java;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
