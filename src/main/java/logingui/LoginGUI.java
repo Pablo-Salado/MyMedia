@@ -37,15 +37,15 @@ public class LoginGUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         PanelRegistro = new javax.swing.JPanel();
         JLabelPassword2 = new javax.swing.JLabel();
-        TextCorreo = new javax.swing.JTextField();
-        JLabelPassword1 = new javax.swing.JLabel();
+        Correo = new javax.swing.JLabel();
         JLabelPassword3 = new javax.swing.JLabel();
         TextUsuario = new javax.swing.JTextField();
         TextPassword = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
         TextConfirm = new javax.swing.JPasswordField();
         JLabelUsuario1 = new javax.swing.JLabel();
         BotonSalir2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        TextCorreo = new javax.swing.JTextField();
         PanelInicioSesion = new javax.swing.JPanel();
         TextFieldUsuario = new javax.swing.JTextField();
         TextFieldPassword = new javax.swing.JPasswordField();
@@ -92,20 +92,10 @@ public class LoginGUI extends javax.swing.JFrame {
         JLabelPassword2.setForeground(new java.awt.Color(255, 255, 255));
         JLabelPassword2.setText("Password");
 
-        TextCorreo.setEditable(false);
-        TextCorreo.setBackground(new java.awt.Color(153, 153, 255));
-        TextCorreo.setForeground(new java.awt.Color(0, 0, 0));
-        TextCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        TextCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextCorreoActionPerformed(evt);
-            }
-        });
-
-        JLabelPassword1.setBackground(new java.awt.Color(255, 255, 255));
-        JLabelPassword1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        JLabelPassword1.setForeground(new java.awt.Color(255, 255, 255));
-        JLabelPassword1.setText("Correo Electronico");
+        Correo.setBackground(new java.awt.Color(255, 255, 255));
+        Correo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        Correo.setForeground(new java.awt.Color(255, 255, 255));
+        Correo.setText("Correo Electronico");
 
         JLabelPassword3.setBackground(new java.awt.Color(255, 255, 255));
         JLabelPassword3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -126,16 +116,6 @@ public class LoginGUI extends javax.swing.JFrame {
         TextPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         TextPassword.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setBackground(new java.awt.Color(186, 79, 84));
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel2.setText("Registrarse");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-
         TextConfirm.setBackground(new java.awt.Color(153, 153, 255));
         TextConfirm.setForeground(new java.awt.Color(0, 0, 0));
         TextConfirm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -155,6 +135,28 @@ public class LoginGUI extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(153, 153, 255));
+        jButton1.setText("Registrarse");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        TextCorreo.setBackground(new java.awt.Color(153, 153, 255));
+        TextCorreo.setForeground(new java.awt.Color(0, 0, 0));
+        TextCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        TextCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextCorreoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelRegistroLayout = new javax.swing.GroupLayout(PanelRegistro);
         PanelRegistro.setLayout(PanelRegistroLayout);
         PanelRegistroLayout.setHorizontalGroup(
@@ -162,43 +164,49 @@ public class LoginGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRegistroLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(BotonSalir2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRegistroLayout.createSequentialGroup()
-                .addContainerGap(486, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
+            .addGroup(PanelRegistroLayout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelRegistroLayout.createSequentialGroup()
+                        .addComponent(JLabelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(140, 140, 140))
+                    .addGroup(PanelRegistroLayout.createSequentialGroup()
+                        .addComponent(TextCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PanelRegistroLayout.createSequentialGroup()
-                    .addGap(0, 110, Short.MAX_VALUE)
+                    .addGap(0, 114, Short.MAX_VALUE)
                     .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(JLabelPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TextCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(JLabelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(TextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(JLabelPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(JLabelPassword3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(TextConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 400, Short.MAX_VALUE)))
+                    .addGap(0, 404, Short.MAX_VALUE)))
         );
         PanelRegistroLayout.setVerticalGroup(
             PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelRegistroLayout.createSequentialGroup()
                 .addComponent(BotonSalir2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(204, 204, 204)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 289, Short.MAX_VALUE))
+                .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelRegistroLayout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelRegistroLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(TextCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(JLabelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 282, Short.MAX_VALUE))
             .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PanelRegistroLayout.createSequentialGroup()
                     .addGap(0, 114, Short.MAX_VALUE)
-                    .addComponent(JLabelPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(TextCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(JLabelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PanelRegistroLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(TextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(80, 80, 80)
+                    .addComponent(TextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(JLabelPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(10, 10, 10)
@@ -209,7 +217,7 @@ public class LoginGUI extends javax.swing.JFrame {
                         .addGroup(PanelRegistroLayout.createSequentialGroup()
                             .addGap(40, 40, 40)
                             .addComponent(TextConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 114, Short.MAX_VALUE)))
+                    .addGap(0, 117, Short.MAX_VALUE)))
         );
 
         PanelInicioSesion.setBackground(new java.awt.Color(153, 153, 255));
@@ -304,11 +312,11 @@ public class LoginGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(PanelIzquierda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 5, Short.MAX_VALUE)
                 .addComponent(PanelInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 215, Short.MAX_VALUE)
+                    .addGap(0, 96, Short.MAX_VALUE)
                     .addComponent(PanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
@@ -317,8 +325,7 @@ public class LoginGUI extends javax.swing.JFrame {
             .addComponent(PanelIzquierda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -368,15 +375,23 @@ public class LoginGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonInicioSesionActionPerformed
 
-    private void TextCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextCorreoActionPerformed
-
     private void TextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextUsuarioActionPerformed
-//Registro
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+
+    private void BotonSalir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSalir1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_BotonSalir1MouseClicked
+
+    private void BotonSalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSalir2MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_BotonSalir2MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
        DBConnectionJDBC conec = DBConnectionJDBC.getInstance();
         String user = TextUsuario.getText();
        String correo = TextCorreo.getText();
@@ -392,15 +407,11 @@ public class LoginGUI extends javax.swing.JFrame {
        }else{
            
        }
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_jButton1MouseClicked
 
-    private void BotonSalir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSalir1MouseClicked
-        System.exit(-1);
-    }//GEN-LAST:event_BotonSalir1MouseClicked
-
-    private void BotonSalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSalir2MouseClicked
-        System.exit(-1);
-    }//GEN-LAST:event_BotonSalir2MouseClicked
+    private void TextCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextCorreoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -444,8 +455,8 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JButton BotonRegistro;
     private javax.swing.JLabel BotonSalir1;
     private javax.swing.JLabel BotonSalir2;
+    private javax.swing.JLabel Correo;
     private javax.swing.JLabel JLabelPassword;
-    private javax.swing.JLabel JLabelPassword1;
     private javax.swing.JLabel JLabelPassword2;
     private javax.swing.JLabel JLabelPassword3;
     private javax.swing.JLabel JLabelUsuario;
@@ -460,7 +471,7 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldUsuario;
     private javax.swing.JPasswordField TextPassword;
     private javax.swing.JTextField TextUsuario;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
