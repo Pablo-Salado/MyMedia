@@ -520,6 +520,8 @@ public class LoginGUI extends javax.swing.JFrame {
                && !correo.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty() && Termino_Condiciones.isSelected()){
             User usuario = new User(user, correo, password);
             conec.addUser(usuario);
+            PanelInicioSesion.setVisible(true);
+            PanelRegistro.setVisible(false);
        }else{
            //Selecciono el error.
            
@@ -533,12 +535,7 @@ public class LoginGUI extends javax.swing.JFrame {
                    errorPassword.setVisible(true);
            
            if(!Termino_Condiciones.isSelected())
-                  errorTerminos.setVisible(true);
-           
-          
-           
-         
-                   
+                  errorTerminos.setVisible(true);        
        }
     }//GEN-LAST:event_jButton1MouseClicked
 
