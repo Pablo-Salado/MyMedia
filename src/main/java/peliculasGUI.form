@@ -73,7 +73,7 @@
                   <Component id="jLabel2" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" pref="49" max="-2" attributes="0"/>
-                  <EmptySpace pref="118" max="32767" attributes="0"/>
+                  <EmptySpace pref="88" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,7 +82,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/resources/logomymedia.png"/>
+              <Image iconType="3" name="/logomymedia.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
@@ -133,7 +133,7 @@
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextoBuscador" min="-2" pref="115" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="424" max="32767" attributes="0"/>
+                  <EmptySpace pref="465" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
