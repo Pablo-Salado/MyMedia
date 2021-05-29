@@ -1,9 +1,6 @@
+package forogui;
 
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,7 +15,7 @@ import javax.swing.JPanel;
 public class Frame_Foro extends javax.swing.JFrame {
 
     /**
-     * Creates new form Frame_Foro
+     * Creates new form forogui.Frame_Foro
      */
     public Frame_Foro() {
         initComponents();
