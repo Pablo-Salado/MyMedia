@@ -17,6 +17,8 @@ public class LoginGUI extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    String globalUser = null;
+    
     public LoginGUI() {
        
         initComponents(); 
@@ -483,12 +485,16 @@ public class LoginGUI extends javax.swing.JFrame {
         String password = TextFieldPassword.getText();
         if(!conec.checkFreeUserName(user)  && conec.checkPassword(user,password)){
             BORRAR.setVisible(true);
+            globalUser = user;
         }else{
             MensajeError.setVisible(true);
         }
-
     }//GEN-LAST:event_BotonInicioSesionMouseClicked
-
+    public String getUsername(){
+        return globalUser;
+    }
+    
+    
     private void BotonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInicioSesionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonInicioSesionActionPerformed
