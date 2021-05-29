@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 import javax.swing.plaf.synth.SynthTextAreaUI;
 
-public class API{
+public class API {
 
         private static String readAll(Reader rd) throws IOException {
                 StringBuilder sb = new StringBuilder();
@@ -37,34 +37,24 @@ public class API{
         }
 
         public static void main(String[] args) throws IOException, JSONException {
-                while(true) {
+                while (true) {
+                        ContenidoMultimedia c;
                         String nombrePelicula;
-                        System.out.println("Dime el nombre de la peli:");
+                        System.out.println("Dime el nombre de la peli que quieres buscar");
                         Scanner sc = new Scanner(System.in);
                         nombrePelicula = sc.nextLine();
-                        System.out.println("El nombre de la peli introducida es: " + nombrePelicula);
+                        c= new ContenidoMultimedia(nombrePelicula);
+                        System.out.println("El nombre de la pelicula es: " + c.getNombre());
+                        System.out.println("La fecha de estreno es: " + c.getFechaEstreno());
+                        System.out.println("El argumento de la pelicula es: " + c.getArgumento());
+                        System.out.println("La duracion de la policula es: "+c.getDuracion()+ " minutos");
+                        System.out.println("La productora de la pelicula es: "+c.getProductora());
+                        System.out.println("La puntuación media de la pelicula sobre 10 es: "+c.getPuntuacion());
+                        System.out.println("El url donde se encuentra la caratula de la pelicula es: "+c.getURLCaratula());
+                        System.out.println("El genero de la pelicula es: "+c.getGenero());
 
-                        JSONObject json = readJsonFromUrl("https://api.themoviedb.org/3/search/multi?api_key=33890a00119dd4252bba26f546853049&language=es&query="+nombrePelicula+"&page=1&include_adult=false");
-                        JSONObject res;
-                        System.out.println(json.toString());
-                        //en res almaceno la primera pelicula
-                        res=json.getJSONArray("results").getJSONObject(0);
-                        System.out.println(res.names().toString());
-                        System.out.println(res.get("id"));
-                        int p= Integer.parseInt(res.get("id").toString());
-                        System.out.println("El id de la pelicula en tipo entero es:"+p);
-                        System.out.println("Obtengo la descripccion avanzada de la peli");
-                        if(res.get("media_type").toString().equals("movie")){
 
-                                res=readJsonFromUrl("https://api.themoviedb.org/3/movie/"+p+"?api_key=33890a00119dd4252bba26f546853049&language=en-US");
-
-                        }else{
-                                res=readJsonFromUrl("https://api.themoviedb.org/3/tv/"+p+"?api_key=33890a00119dd4252bba26f546853049&language=en-US");
-                        }
-
-                        System.out.println(res.names().toString());
 
                 }
-                
         }
 }
