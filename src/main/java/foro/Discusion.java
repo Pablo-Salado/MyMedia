@@ -4,25 +4,18 @@ import java.util.List;
 
 public class Discusion {
     private String titulo;
-    private List<Mensaje> mensajes = null;
+    private int id;
     
-    public Discusion(String titulo, Mensaje primero) {
+    public Discusion(String titulo, int id) {
         this.titulo = titulo;
-        anadirMensaje(primero);
+        this.id = id;
     }
-    
-    public static void anadirMensaje(Mensaje m) {
-        
+
+    public String getTitulo() {
+        return titulo;
     }
-    
-    public void eliminarMensaje(Mensaje m) {
-        
+
+    public int getId() {
+        return id;
     }
-    
-    public List<Mensaje> getMensajes() {
-        return mensajes;
-    }
-    
-    
-    
 }

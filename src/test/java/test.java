@@ -32,8 +32,7 @@ public class test {
 
         DBAccess.addUser(user);
     }*/
-        
-        DBAccess.deleteMessage(1);
+        DBAccess.createTopic("texto","hola",2);
 
     }
 

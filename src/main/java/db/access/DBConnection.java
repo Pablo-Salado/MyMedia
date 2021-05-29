@@ -24,6 +24,7 @@ public abstract class DBConnection {
 
     public abstract void createTopic(String title,String username,int id);
     public abstract void createTopic(String title,String username,String desc);
+    public abstract void createForum(String title);
     public abstract void createMessage(String Text,String username,int id);
     public abstract void deleteMessage(int id);
 

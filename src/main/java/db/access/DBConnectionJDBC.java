@@ -1,7 +1,7 @@
 package db.access;
 /*  @author Andrés Garrido López
     Clase para establecer conexión con la base de datos de aws
-    Basado en el github del profesor Jose María �?lvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
+    Basado en el github del profesor Jose María �?lvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
 */
 
 import db.User;
@@ -114,7 +114,8 @@ public class DBConnectionJDBC extends DBConnection {
         String createTopicCommandSQL = "INSERT INTO Discusion(id,titulo,idforo,autor) VALUES (?,?,?,?)";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(createTopicCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
-            preparedStatement.setInt(1,0);
+            int newID = generateNewID(preparedStatement);
+            preparedStatement.setInt(1,newID);
             preparedStatement.setString(2,title);
             preparedStatement.setInt(3,id);
             preparedStatement.setString(4,username);
@@ -124,21 +125,38 @@ public class DBConnectionJDBC extends DBConnection {
         }
     }
 
+    private int generateNewID(PreparedStatement preparedStatement) throws SQLException {
+        return preparedStatement.getMaxRows()+1;
+    }
+
     @Override
     public void createTopic(String title, String username, String desc) {
 
     }
 
     @Override
+    public void createForum(String title) {
+        String createForumCommandSQL = "INSERT INTO Foro(id,titulo,descripcion) VALUES (id,?,?)";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(createForumCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1,title);
+            preparedStatement.setString(2,"Texto de ejemplo");
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    @Override
     public void createMessage(String Text, String username,int id) {
-        String createMessageCommandSQL = "INSERT INTO Mensaje(id,cuerpo,idDiscusion,autor) VALUES (?,?,?,?)";
+        String createMessageCommandSQL = "INSERT INTO Mensaje(id,cuerpo,idDiscusion,autor) VALUES (id,?,?,?)";
         
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(createMessageCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
-            preparedStatement.setInt(1,1);
-            preparedStatement.setString(2,Text);
-            preparedStatement.setInt(3,id);
-            preparedStatement.setString(4,username);
+            preparedStatement.setString(1,Text);
+            preparedStatement.setInt(2,id);
+            preparedStatement.setString(3,username);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

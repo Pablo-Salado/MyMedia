@@ -3,17 +3,25 @@ package foro;
 import java.util.List;
 
 public class Foro {
-    private List<Discusion> discusiones;
+    private int id;
+    private String title;
+    private String Text;
     
-    public Foro() {
-        discusiones = null;
+    public Foro(int id, String title,String text) {
+         this.id = id;
+         this.title = title;
+         this.Text = text;
     }
-    
-    public void anadirDiscusion(Discusion d) {
-        
+
+    public int getId() {
+        return id;
     }
-    
-    public void eliminarDiscusion(Discusion d) {
-        
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getText() {
+        return Text;
     }
 }
