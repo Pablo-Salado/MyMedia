@@ -109,4 +109,34 @@ public class DBConnectionJDBC extends DBConnection {
         return pass;
     }
 
+    @Override
+    public void createTopic(String title, String username,int id) {
+        String createTopicCommandSQL = "INSERT INTO Discusion(id,titulo,idforo,autor) VALUES (?,?,?,?)";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(createTopicCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1,0);
+            preparedStatement.setString(2,title);
+            preparedStatement.setInt(3,id);
+            preparedStatement.setString(4,username);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public void createTopic(String title, String username, String desc) {
+
+    }
+
+    @Override
+    public void createMessage(String Text, String username,int id) {
+
+    }
+
+    @Override
+    public void deleteMessage(int id) {
+
+    }
+
 }

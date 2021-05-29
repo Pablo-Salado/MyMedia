@@ -22,9 +22,9 @@ public abstract class DBConnection {
     public abstract boolean checkFreeUserName(String username);
     public abstract boolean checkFreeEmail(String email);
 
-    public abstract void createTopic(String title,String username);
+    public abstract void createTopic(String title,String username,int id);
     public abstract void createTopic(String title,String username,String desc);
-    public abstract void createMessage(String Text,String username);
+    public abstract void createMessage(String Text,String username,int id);
     public abstract void deleteMessage(int id);
 
 }

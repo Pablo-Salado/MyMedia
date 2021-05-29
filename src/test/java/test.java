@@ -8,7 +8,7 @@ public class test {
     public static void main(String[] args) {
 
         DBConnection DBAccess = DBConnectionJDBC.getInstance();
-        User user = null;
+        /*User user = null;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce el nombre de usuario");
@@ -31,5 +31,10 @@ public class test {
         user = new User(username,email,password);
 
         DBAccess.addUser(user);
+    }*/
+        DBAccess.createTopic("Prueba de topic","hola",0);
+
+
     }
+
 }
