@@ -1,3 +1,5 @@
+package foro;
+
 import java.util.List;
 
 public class Foro {

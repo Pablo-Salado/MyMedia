@@ -1,3 +1,5 @@
+package foro;
+
 public class Mensaje {
     private final String mensaje;
     private final String autor;
