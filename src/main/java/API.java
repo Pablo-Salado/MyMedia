@@ -1,3 +1,4 @@
+import PeliculasSeries.ContenidoMultimedia;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
