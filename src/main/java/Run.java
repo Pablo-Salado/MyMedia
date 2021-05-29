@@ -4,7 +4,6 @@ import logingui.LoginGUI;
 
 public class Run {
     public static void main(String[] args) {
-        User currentUser;
         LoginGUI loginGUI = new LoginGUI();
         Frame_Foro frame_foro = new Frame_Foro();
 
@@ -12,6 +11,8 @@ public class Run {
             @Override
             public void run() {
                 loginGUI.setVisible(true);
+                String currentUser = loginGUI.getUsername();
+
             }
         });
     }

@@ -3,18 +3,22 @@ package foro;
 import java.util.List;
 
 public class Foro {
-    private int id;
+    private static final int ID_PELICULAS = 1;
+    private static final int ID_SERIES = 2;
     private String title;
     private String Text;
     
-    public Foro(int id, String title,String text) {
-         this.id = id;
+    public Foro(String title,String text) {
          this.title = title;
          this.Text = text;
     }
 
-    public int getId() {
-        return id;
+    public static int getIdPeliculas() {
+        return ID_PELICULAS;
+    }
+
+    public static int getIdSeries() {
+        return ID_SERIES;
     }
 
     public String getTitle() {

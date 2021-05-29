@@ -516,6 +516,11 @@ public class LoginGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        errorCorreo.setVisible(false);
+        errorUsuario.setVisible(false);
+        errorPassword.setVisible(false);
+        errorTerminos.setVisible(false);
+
        DBConnectionJDBC conec = DBConnectionJDBC.getInstance();
         String user = TextUsuario.getText();
        String correo = TextCorreo.getText();
