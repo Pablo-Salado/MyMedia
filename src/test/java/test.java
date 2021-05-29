@@ -32,8 +32,8 @@ public class test {
 
         DBAccess.addUser(user);
     }*/
-        DBAccess.createTopic("Prueba de topic","hola",0);
-
+        
+        DBAccess.deleteMessage(1);
 
     }
 

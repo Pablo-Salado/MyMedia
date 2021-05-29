@@ -1,7 +1,7 @@
 package db.access;
 /*  @author Andrés Garrido López
     Clase para establecer conexión con la base de datos de aws
-    Basado en el github del profesor Jose María Álvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
+    Basado en el github del profesor Jose María �?lvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
 */
 
 import db.User;
@@ -110,7 +110,7 @@ public class DBConnectionJDBC extends DBConnection {
     }
 
     @Override
-    public void createTopic(String title, String username,int id) {
+    public void createTopic(String title, String username, int id) {
         String createTopicCommandSQL = "INSERT INTO Discusion(id,titulo,idforo,autor) VALUES (?,?,?,?)";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(createTopicCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
@@ -131,12 +131,30 @@ public class DBConnectionJDBC extends DBConnection {
 
     @Override
     public void createMessage(String Text, String username,int id) {
-
+        String createMessageCommandSQL = "INSERT INTO Mensaje(id,cuerpo,idDiscusion,autor) VALUES (?,?,?,?)";
+        
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(createMessageCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1,1);
+            preparedStatement.setString(2,Text);
+            preparedStatement.setInt(3,id);
+            preparedStatement.setString(4,username);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override
     public void deleteMessage(int id) {
-
+        String deleteMessageCommandSQL = "DELETE FROM Mensaje WHERE id LIKE ?";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteMessageCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, Integer.toString(id));
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
 }
