@@ -6,10 +6,10 @@ public class Discusion {
     
     public Discusion(String titulo, Mensaje primero) {
         this.titulo = titulo;
-        añadirMensaje(primero);
+        anadirMensaje(primero);
     }
     
-    public static void añadirMensaje(Mensaje m) {
+    public static void anadirMensaje(Mensaje m) {
         
     }
     

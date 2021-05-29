@@ -7,7 +7,7 @@ public class Foro {
         discusiones = null;
     }
     
-    public void añadirDiscusion(Discusion d) {
+    public void anadirDiscusion(Discusion d) {
         
     }
     
