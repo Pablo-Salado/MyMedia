@@ -48,6 +48,11 @@ public class peliculasGUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jSinopsis = new javax.swing.JLabel();
         jCaratula = new javax.swing.JLabel();
+        jFechaEstreno = new javax.swing.JLabel();
+        jDuracion = new javax.swing.JLabel();
+        jProductora = new javax.swing.JLabel();
+        jPuntuacion = new javax.swing.JLabel();
+        jGenero = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,7 +94,7 @@ public class peliculasGUI extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(417, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(94, 99, 182));
@@ -109,6 +114,7 @@ public class peliculasGUI extends javax.swing.JFrame {
             }
         });
 
+        jSinopsis.setBackground(new java.awt.Color(187, 187, 187));
         jSinopsis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jSinopsis.setText("Sinopsis: ");
         jSinopsis.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -118,6 +124,19 @@ public class peliculasGUI extends javax.swing.JFrame {
         jCaratula.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jCaratula.setText("Carátula:");
         jCaratula.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jFechaEstreno.setBackground(new java.awt.Color(255, 255, 255));
+        jFechaEstreno.setText("Fecha de estreno:");
+
+        jDuracion.setText("Duración: ");
+
+        jProductora.setText("Productora: ");
+
+        jPuntuacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPuntuacion.setText("Puntuación: ");
+        jPuntuacion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jGenero.setText("Género: ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -136,9 +155,15 @@ public class peliculasGUI extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(88, Short.MAX_VALUE))
+                            .addComponent(jFechaEstreno, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jProductora, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(82, 82, 82)
+                        .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,10 +175,21 @@ public class peliculasGUI extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextoBuscador))
                 .addGap(18, 18, 18)
-                .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jFechaEstreno)
+                        .addGap(18, 18, 18)
+                        .addComponent(jDuracion)
+                        .addGap(18, 18, 18)
+                        .addComponent(jProductora)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPuntuacion, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jGenero))
+                    .addComponent(jSinopsis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(242, 242, 242))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,9 +198,8 @@ public class peliculasGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,6 +227,12 @@ public class peliculasGUI extends javax.swing.JFrame {
             image = ImageIO.read(url);
             image = image.getScaledInstance(jCaratula.getWidth(), jCaratula.getHeight(), Image.SCALE_SMOOTH);
             jCaratula.setIcon(new ImageIcon(image));
+            jFechaEstreno.setText("<html> Fecha de estreno: " + cm.getFechaEstreno() + "<html>");
+            jDuracion.setText("<html> Duración: " + cm.getDuracion() + " minutos <html>");
+            jProductora.setText("<html> Productora: " + cm.getProductora()+ "<html>");
+            jPuntuacion.setText("<html> Puntuación: " + cm.getPuntuacion() + "<html>");
+            jGenero.setText("<html> Género: " + cm.getGenero() + "<html>");
+            
         } catch (MalformedURLException ex) {
             Logger.getLogger(peliculasGUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -239,12 +280,17 @@ public class peliculasGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jCaratula;
+    private javax.swing.JLabel jDuracion;
+    private javax.swing.JLabel jFechaEstreno;
+    private javax.swing.JLabel jGenero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jProductora;
+    private javax.swing.JLabel jPuntuacion;
     private javax.swing.JLabel jSinopsis;
     private javax.swing.JTextField jTextoBuscador;
     // End of variables declaration//GEN-END:variables
