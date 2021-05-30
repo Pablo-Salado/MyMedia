@@ -6,6 +6,7 @@ import java.nio.charset.Charset;
 import java.util.Scanner;
 
 import com.mysql.cj.jdbc.SuspendableXAConnection;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.DOMImplementation;
@@ -124,19 +125,23 @@ public  class ContenidoMultimedia {
         return res;
     }
     public String getGenero(){
-        String res;
+        StringBuilder res=new StringBuilder();
         if(error){
-            res="error";
+            res.append("error");
         }else{
-            try{
-                res=infoPelicula.getJSONArray("genres").getJSONObject(0).get("name").toString();
+            try{//name
+                JSONArray j;
+                j=infoPelicula.getJSONArray("genres");
+                for(int cont=0;cont<j.length();cont++){
+                    res.append(j.getJSONObject(cont).get("name").toString()+",");
+                }
 
             }catch (Exception e){
-                res="no disponible";
+                res.append("no disponible");
             }
 
         }
-        return res;
+        return res.toString();
     }
     public String getNombre(){
         String res;
