@@ -8,15 +8,23 @@ import java.util.Scanner;
 import com.mysql.cj.jdbc.SuspendableXAConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.DOMImplementation;
 
 
 public class ContenidoMultimedia {
     JSONObject infoPelicula;
+    Boolean error=false;
 
 
     public ContenidoMultimedia(String nombre) throws IOException { //al constructor se le pasa el nombre de la película,la busca y configura
         nombre=nombre.replace(" ","-");
-        infoPelicula=obtenerPelicula(nombre);
+        try{
+            infoPelicula=obtenerPelicula(nombre);
+        }
+        catch (Exception e){
+            System.out.println("Error no se encontro la pelicula");
+            error=true;
+        }
 
     }
 
@@ -75,30 +83,83 @@ public class ContenidoMultimedia {
     // "poster_path","spoken_languages","production_companies","release_date","vote_average","belongs_to_collection",
     // "tagline","adult","homepage","status"]
     public int getDuracion(){
-        return Integer.parseInt(infoPelicula.get("runtime").toString());
+        int res;
+        if(error){
+            res=0;
+        }else{
+            res=Integer.parseInt(infoPelicula.get("runtime").toString());
+        }
+        return res;
     }
 
     public String getArgumento(){
+        String res;
+        if(error){
+            res="error";
+        }else{
+            res=infoPelicula.get("overview").toString();
+        }
 
-        return infoPelicula.get("overview").toString();
+        return res;
     }
     public String getGenero(){
-        return infoPelicula.getJSONArray("genres").getJSONObject(0).get("name").toString();
+        String res;
+        if(error){
+            res="error";
+        }else{
+            res=infoPelicula.getJSONArray("genres").getJSONObject(0).get("name").toString();
+        }
+        return res;
     }
     public String getNombre(){
-        return infoPelicula.get("original_title").toString();
+        String res;
+        if(error){
+            res="error";
+        }else{
+            res=infoPelicula.get("original_title").toString();
+        }
+        return res;
     }
     public String getURLCaratula(){
-        return ("https://image.tmdb.org/t/p/w500"+infoPelicula.get("poster_path").toString());
+        String res;
+        if(error) {
+            res="https://i.pinimg.com/736x/b7/d0/b6/b7d0b611d3d927b74c6b71f5e797a5fe.jpg";
+
+        }else{
+            res="https://image.tmdb.org/t/p/w500"+infoPelicula.get("poster_path").toString();
+        }
+        return res;
     }
     public String getProductora(){
-        return infoPelicula.getJSONArray("production_companies").getJSONObject(0).get("name").toString();
+        String res;
+        if(error){
+            res="error";
+
+        }else{
+            res=infoPelicula.getJSONArray("production_companies").getJSONObject(0).get("name").toString();
+        }
+        return res;
     }
     public String getFechaEstreno(){
-        return infoPelicula.get("release_date").toString();
+        String res;
+        if(error){
+            res="error";
+        }else{
+         res=infoPelicula.get("release_date").toString();
+        }
+        return res;
     }
     public double getPuntuacion(){
-        return Double.parseDouble(infoPelicula.get("vote_average").toString());
+        double res;
+        if(error){
+            res=0;
+
+
+        }else{
+            res=Double.parseDouble(infoPelicula.get("vote_average").toString());
+
+        }
+        return res;
     }
 
 
