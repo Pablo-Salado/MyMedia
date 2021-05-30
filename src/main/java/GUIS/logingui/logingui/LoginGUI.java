@@ -1,4 +1,4 @@
-package logingui;
+package GUIS.logingui.logingui;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,7 +6,7 @@ package logingui;
  * and open the template in the editor.
  */
 import db.access.*;
-import db.*;
+
 import javax.swing.JFrame;
 /**
  *

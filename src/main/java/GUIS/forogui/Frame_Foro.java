@@ -1,4 +1,4 @@
-package forogui;
+package GUIS.forogui;
 
 import java.awt.Component;
 
@@ -15,7 +15,7 @@ import java.awt.Component;
 public class Frame_Foro extends javax.swing.JFrame {
 
     /**
-     * Creates new form forogui.Frame_Foro
+     * Creates new form GUIS.forogui.Frame_Foro
      */
     public Frame_Foro() {
         initComponents();

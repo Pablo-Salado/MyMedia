@@ -4,7 +4,7 @@ package db.access;
     Basado en el github del profesor Jose María Álvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
 */
 
-import db.User;
+
 
 public abstract class DBConnection {
     static final String DB_URL = "jdbc:mysql://iis2021.cobadwnzalab.eu-central-1.rds.amazonaws.com";

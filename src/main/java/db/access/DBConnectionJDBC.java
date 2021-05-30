@@ -4,8 +4,6 @@ package db.access;
     Basado en el github del profesor Jose María �?lvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
 */
 
-import db.User;
-
 import java.sql.*;
 
 public class DBConnectionJDBC extends DBConnection {
@@ -108,6 +106,7 @@ public class DBConnectionJDBC extends DBConnection {
         }
         return pass;
     }
+
 
     @Override
     public void createTopic(String title, String username, int id) {

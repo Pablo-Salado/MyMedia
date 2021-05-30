@@ -1,8 +1,8 @@
-import db.User;
+import GUIS.forogui.Frame_Foro;
+import GUIS.logingui.logingui.LoginGUI;
 import db.access.DBConnection;
 import db.access.DBConnectionJDBC;
-import forogui.Frame_Foro;
-import logingui.LoginGUI;
+
 
 public class Run {
     public static void main(String[] args) {

@@ -1,8 +1,5 @@
-import db.User;
 import db.access.DBConnection;
 import db.access.DBConnectionJDBC;
-
-import java.util.Scanner;
 
 public class test {
     public static void main(String[] args) {

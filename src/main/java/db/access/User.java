@@ -1,4 +1,4 @@
-package db;
+package db.access;
 
 import java.sql.Date;
 
