@@ -15,6 +15,7 @@ public class ContenidoMultimedia {
 
 
     public ContenidoMultimedia(String nombre) throws IOException { //al constructor se le pasa el nombre de la película,la busca y configura
+        nombre=nombre.replace(" ","-");
         infoPelicula=obtenerPelicula(nombre);
 
     }
