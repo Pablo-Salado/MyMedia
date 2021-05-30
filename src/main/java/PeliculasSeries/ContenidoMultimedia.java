@@ -91,7 +91,7 @@ public  class ContenidoMultimedia {
     public String getDuracion(){
         String res;
         if(error){
-            res="0";
+            res="error";
         }else{
 
                 try{
@@ -205,7 +205,7 @@ public  class ContenidoMultimedia {
     public String getPuntuacion(){
         String res;
         if(error){
-            res="0";
+            res="error";
 
 
         }else{
