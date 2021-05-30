@@ -484,10 +484,9 @@ public class LoginGUI extends javax.swing.JFrame {
         String user = TextFieldUsuario.getText();
         String password = TextFieldPassword.getText();
         if(!conec.checkFreeUserName(user)  && conec.checkPassword(user,password) && !TextFieldUsuario.getText().isEmpty()){
-            BORRAR.setVisible(true);
-            System.out.println("Valido");
-            globalUser = user;
             isLogued = true;
+            BORRAR.setVisible(true);
+            globalUser = user;
         }else{
             MensajeError.setVisible(true);
         }
@@ -495,8 +494,12 @@ public class LoginGUI extends javax.swing.JFrame {
     public String getUsername(){
         return globalUser;
     }
-    
-    
+    public boolean logued() {
+        return isLogued;
+    }
+
+
+
     private void BotonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInicioSesionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonInicioSesionActionPerformed
@@ -620,8 +623,5 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
 
-    public boolean logued() {
-        return isLogued;
-    }
     // End of variables declaration//GEN-END:variables
 }
