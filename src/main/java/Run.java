@@ -9,24 +9,21 @@ import java.util.concurrent.locks.ReentrantLock;
 
 
 public class Run {
-    static Lock l = new ReentrantLock();
-    static Condition logued = l.newCondition();
     private static class threadChecker extends Thread{
         LoginGUI loginGUI;
+        private boolean isLogued = false;
 
         private threadChecker(LoginGUI loginGUI){this.loginGUI = loginGUI;}
 
         public void run(){
             while (!loginGUI.logued()){
-                System.out.println();
+                this.yield();
             };
-            try{
-                l.lock();
-                logued.signal();
-            }finally {
-                l.unlock();
-            }
+            isLogued = true;
+        }
 
+        public boolean isLogued() {
+            return isLogued;
         }
     }
     public static void main(String[] args) throws InterruptedException {
@@ -38,12 +35,9 @@ public class Run {
         threadChecker threadChecker = new threadChecker(loginGUI);
 
         loginGUI.setVisible(true);
-        try{
-            l.lock();
-            threadChecker.start();
-            if(!loginGUI.logued())logued.await();
-        }finally {
-            l.unlock();
+        threadChecker.start();
+        while (!threadChecker.isLogued()){
+            Thread.yield();
         }
         loginGUI.setVisible(false);
         peliculasGUI.setVisible(true);
