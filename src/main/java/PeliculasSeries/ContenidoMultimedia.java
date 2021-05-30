@@ -88,14 +88,18 @@ public  class ContenidoMultimedia {
     // "genres","popularity","production_countries","id","vote_count","budget","overview","original_title","runtime",
     // "poster_path","spoken_languages","production_companies","release_date","vote_average","belongs_to_collection",
     // "tagline","adult","homepage","status"]
-    public int getDuracion(){
-        int res;
+    public String getDuracion(){
+        String res;
         if(error){
-            res=0;
+            res="0";
         }else{
 
-                res = Integer.parseInt(infoPelicula.get("runtime").toString());
+                try{
+                    res = (infoPelicula.get("runtime").toString());
 
+                }catch ( Exception e){
+                    res="no disponible";
+            }
         }
         return res;
     }
@@ -105,8 +109,15 @@ public  class ContenidoMultimedia {
         if(error){
             res="error";
         }else{
+            try{
+            res =  res = infoPelicula.get("overview").toString();
 
-                res = infoPelicula.get("overview").toString();
+        }catch ( Exception e){
+            res="no disponible";
+        }
+
+
+
 
         }
 
@@ -117,7 +128,13 @@ public  class ContenidoMultimedia {
         if(error){
             res="error";
         }else{
-            res=infoPelicula.getJSONArray("genres").getJSONObject(0).get("name").toString();
+            try{
+                res=infoPelicula.getJSONArray("genres").getJSONObject(0).get("name").toString();
+
+            }catch (Exception e){
+                res="no disponible";
+            }
+
         }
         return res;
     }
@@ -126,7 +143,12 @@ public  class ContenidoMultimedia {
         if(error){
             res="error";
         }else{
-            res=infoPelicula.get("original_title").toString();
+            try{
+                res=infoPelicula.get("original_title").toString();
+            }catch (Exception e){
+                res="no disponible";
+            }
+
         }
         return res;
     }
@@ -136,7 +158,14 @@ public  class ContenidoMultimedia {
             res="https://i.pinimg.com/736x/b7/d0/b6/b7d0b611d3d927b74c6b71f5e797a5fe.jpg";
 
         }else{
+            try{
+
                 res = "https://image.tmdb.org/t/p/w500" + infoPelicula.get("poster_path").toString();
+            }catch (Exception e){
+                res="https://i.pinimg.com/736x/b7/d0/b6/b7d0b611d3d927b74c6b71f5e797a5fe.jpg";
+            }
+
+
 
         }
         return res;
@@ -147,7 +176,13 @@ public  class ContenidoMultimedia {
             res="error";
 
         }else{
+            try{
                 res=infoPelicula.getJSONArray("production_companies").getJSONObject(0).get("name").toString();
+            }catch (Exception e){
+                res="no disponible";
+            }
+
+
 
         }
         return res;
@@ -157,19 +192,29 @@ public  class ContenidoMultimedia {
         if(error){
             res="error";
         }else{
-                    res = infoPelicula.get("release_date").toString();
+            try{
+                res = infoPelicula.get("release_date").toString();
+            }catch (Exception e){
+                res="no disponible";
+            }
+
 
         }
         return res;
     }
-    public double getPuntuacion(){
-        double res;
+    public String getPuntuacion(){
+        String res;
         if(error){
-            res=0;
+            res="0";
 
 
         }else{
-            res=Double.parseDouble(infoPelicula.get("vote_average").toString());
+            try{
+                res=(infoPelicula.get("vote_average").toString());
+            }catch (Exception e){
+                res="no disponible";
+            }
+
 
         }
         return res;
