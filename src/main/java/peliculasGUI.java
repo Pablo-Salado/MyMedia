@@ -53,7 +53,6 @@ public class peliculasGUI extends javax.swing.JFrame {
         jDuracion = new javax.swing.JLabel();
         jFechaEstreno = new javax.swing.JLabel();
         jSinopsis = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
         jCaratula = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,32 +115,32 @@ public class peliculasGUI extends javax.swing.JFrame {
             }
         });
 
-        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
 
         jGenero.setBackground(new java.awt.Color(255, 255, 255));
-        jGenero.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jGenero.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jGenero.setText("Género: ");
 
         jPuntuacion.setBackground(new java.awt.Color(255, 255, 255));
-        jPuntuacion.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jPuntuacion.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jPuntuacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPuntuacion.setText("Puntuación: ");
         jPuntuacion.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jProductora.setBackground(new java.awt.Color(255, 255, 255));
-        jProductora.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jProductora.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jProductora.setText("Productora: ");
 
         jDuracion.setBackground(new java.awt.Color(255, 255, 255));
-        jDuracion.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jDuracion.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jDuracion.setText("Duración: ");
 
         jFechaEstreno.setBackground(new java.awt.Color(255, 255, 255));
-        jFechaEstreno.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jFechaEstreno.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jFechaEstreno.setText("Fecha de estreno:");
 
         jSinopsis.setBackground(new java.awt.Color(187, 187, 187));
-        jSinopsis.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jSinopsis.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 18)); // NOI18N
         jSinopsis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jSinopsis.setText("Sinopsis: ");
         jSinopsis.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -155,18 +154,19 @@ public class peliculasGUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jProductora, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFechaEstreno, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jFechaEstreno, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jFechaEstreno)
                 .addGap(18, 18, 18)
@@ -177,33 +177,14 @@ public class peliculasGUI extends javax.swing.JFrame {
                 .addComponent(jPuntuacion)
                 .addGap(18, 18, 18)
                 .addComponent(jGenero)
-                .addContainerGap(225, Short.MAX_VALUE))
-        );
-
-        jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
-
-        jCaratula.setBackground(new java.awt.Color(255, 255, 255));
-        jCaratula.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jCaratula.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jCaratula.setText("Carátula:");
-        jCaratula.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jCaratula.setBackground(new java.awt.Color(255, 255, 255));
+        jCaratula.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        jCaratula.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jCaratula.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jCaratula.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(127, 127, 127), 4, true));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -218,10 +199,10 @@ public class peliculasGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                        .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,11 +213,11 @@ public class peliculasGUI extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextoBuscador))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(134, Short.MAX_VALUE))
+                    .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(348, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -304,7 +285,6 @@ public class peliculasGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel jProductora;
     private javax.swing.JLabel jPuntuacion;
     private javax.swing.JLabel jSinopsis;
