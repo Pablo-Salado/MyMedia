@@ -10,8 +10,9 @@ public class Run {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                loginGUI.setVisible(true);
+                //loginGUI.setVisible(true);
                 String currentUser = loginGUI.getUsername();
+                new Frame_Foro().setVisible(true);
 
             }
         });
