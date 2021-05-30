@@ -48,9 +48,9 @@ public class API {
                         System.out.println("El nombre de la pelicula es: " + c.getNombre());
                         System.out.println("La fecha de estreno es: " + c.getFechaEstreno());
                         System.out.println("El argumento de la pelicula es: " + c.getArgumento());
-                        System.out.println("La duracion de la policula es: "+c.getDuracion()+ " minutos");
+                        System.out.println("La duracion de la pelicula es: "+c.getDuracion()+ " minutos");
                         System.out.println("La productora de la pelicula es: "+c.getProductora());
-                        System.out.println("La puntuación media de la pelicula sobre 10 es: "+c.getPuntuacion());
+                        System.out.println("La puntuacion media de la pelicula sobre 10 es: "+c.getPuntuacion());
                         System.out.println("El url donde se encuentra la caratula de la pelicula es: "+c.getURLCaratula());
                         System.out.println("El genero de la pelicula es: "+c.getGenero());
 
