@@ -84,7 +84,6 @@ public class LoginGUI extends javax.swing.JFrame {
         setTitle("MyMedia");
         setForeground(java.awt.Color.black);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
 
         PanelIzquierda.setBackground(new java.awt.Color(255, 255, 255));
@@ -233,7 +232,7 @@ public class LoginGUI extends javax.swing.JFrame {
         errorTerminos.setText("*Debe aceptar los términos y condiciones para poder continuar con el registro.");
 
         errorCorreo.setForeground(new java.awt.Color(255, 0, 0));
-        errorCorreo.setText("*El correo ya ha sido utilizado, inserte un correo válido");
+        errorCorreo.setText("*El correo no es válido, inténtelo de nuevo");
 
         errorUsuario.setForeground(new java.awt.Color(255, 0, 0));
         errorUsuario.setText("*El usuario ya ha sido utilizado, inserte un usuario válido");
@@ -269,25 +268,21 @@ public class LoginGUI extends javax.swing.JFrame {
             .addGroup(PanelRegistroLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelRegistroLayout.createSequentialGroup()
-                        .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(errorPassword)
-                            .addComponent(JLabelPassword3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(errorUsuario)
-                            .addComponent(errorCorreo)
-                            .addComponent(Correo)
-                            .addComponent(JLabelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLabelPassword2)
-                            .addComponent(TextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Termino_Condiciones)
-                            .addComponent(errorTerminos))
-                        .addContainerGap(312, Short.MAX_VALUE))
-                    .addGroup(PanelRegistroLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(errorPassword)
+                    .addComponent(JLabelPassword3, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(errorUsuario)
+                    .addComponent(errorCorreo)
+                    .addComponent(Correo)
+                    .addComponent(JLabelUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelPassword2)
+                    .addComponent(TextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Termino_Condiciones)
+                    .addComponent(errorTerminos)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(312, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRegistroLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -633,6 +628,5 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-
     // End of variables declaration//GEN-END:variables
 }
