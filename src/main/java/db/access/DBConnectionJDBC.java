@@ -4,7 +4,11 @@ package db.access;
     Basado en el github del profesor Jose María �?lvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
 */
 
+import foro.Discusion;
+import foro.Mensaje;
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class DBConnectionJDBC extends DBConnection {
     private Connection connection;
@@ -110,7 +114,7 @@ public class DBConnectionJDBC extends DBConnection {
 
     @Override
     public void createTopic(String title, String username, int id) {
-        String createTopicCommandSQL = "INSERT INTO Discusion(id,titulo,idforo,autor) VALUES (id,?,?,?)";
+        String createTopicCommandSQL = "INSERT INTO Discusion(id,titulo,idForo,autor) VALUES (id,?,?,?)";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(createTopicCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1,title);
@@ -162,6 +166,50 @@ public class DBConnectionJDBC extends DBConnection {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+    
+    @Override
+    public LinkedList<Discusion> getTopics(int idForum) {
+        String getTopicsCommandSQL = "SELECT * FROM Discusion WHERE idForo LIKE ?";
+        LinkedList<Discusion> topics = new LinkedList<>();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(getTopicsCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, Integer.toString(idForum));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String titulo = resultSet.getString("titulo");
+                int idDiscusion = resultSet.getInt("id");
+                String autor = resultSet.getString("autor");
+                //System.out.println(Integer.toString(idDiscusion) + ", " + titulo + ", " + Integer.toString(idForum) + ", " + autor);
+                topics.add(new Discusion(titulo, idDiscusion));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        
+        return topics;
+    }
+    
+    @Override
+    public LinkedList<Mensaje> getMessages(int idTopic) {
+        String getMessagesCommandSQL = "SELECT * FROM Mensaje WHERE idDiscusion LIKE ?";
+        LinkedList<Mensaje> messages = new LinkedList<>();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(getMessagesCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, Integer.toString(idTopic));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String texto = resultSet.getString("cuerpo");
+                String autor = resultSet.getString("autor");
+                //System.out.println(Integer.toString(id) + ", " + texto + ", " + Integer.toString(idTopic) + ", " + autor);
+                messages.add(new Mensaje(texto, autor));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        
+        return messages;
     }
 
 }

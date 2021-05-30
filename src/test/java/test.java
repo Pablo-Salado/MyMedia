@@ -1,5 +1,7 @@
 import db.access.DBConnection;
 import db.access.DBConnectionJDBC;
+import foro.Discusion;
+import java.util.List;
 
 public class test {
     public static void main(String[] args) {
@@ -29,8 +31,9 @@ public class test {
 
         DBAccess.addUser(user);
     }*/
-
-
+        //DBAccess.createMessage("probando probando", "hola", 3);
+        //List<Discusion> d = DBAccess.getTopics(2);
+        
     }
 
 }

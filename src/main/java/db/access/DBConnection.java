@@ -1,7 +1,12 @@
 package db.access;
+
+import foro.Discusion;
+import foro.Mensaje;
+import java.util.LinkedList;
+
 /*  @author Andrés Garrido López
     Clase abstracta para establecer los métodos que interaccionan con la base de datos interna
-    Basado en el github del profesor Jose María Álvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
+    Basado en el github del profesor Jose María �?lvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
 */
 
 
@@ -27,4 +32,6 @@ public abstract class DBConnection {
     public abstract void createMessage(String Text,String username,int id);
     public abstract void deleteMessage(int id);
 
+    public abstract LinkedList<Discusion> getTopics(int id);
+    public abstract LinkedList<Mensaje> getMessages(int id);
 }
