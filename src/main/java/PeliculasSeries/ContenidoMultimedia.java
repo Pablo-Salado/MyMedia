@@ -11,15 +11,24 @@ import org.json.JSONObject;
 import org.w3c.dom.DOMImplementation;
 
 
-public class ContenidoMultimedia {
+public  class ContenidoMultimedia {
     JSONObject infoPelicula;
     Boolean error=false;
+    int tipo; //0 si es pelicula , 1 si es una serie
+
 
 
     public ContenidoMultimedia(String nombre) throws IOException { //al constructor se le pasa el nombre de la película,la busca y configura
         nombre=nombre.replace(" ","-");
         try{
-            infoPelicula=obtenerPelicula(nombre);
+            infoPelicula=obtenerMultimedia(nombre);
+            try{
+                infoPelicula.get("number_of_episodes");
+                tipo=1;
+            }catch (Exception e){
+                tipo=0;
+            }
+
         }
         catch (Exception e){
             System.out.println("Error no se encontro la pelicula");
@@ -28,20 +37,17 @@ public class ContenidoMultimedia {
 
     }
 
-    private static JSONObject obtenerPelicula(String nombre) throws IOException {
+    private static JSONObject obtenerMultimedia(String nombre) throws IOException {
         JSONObject json=null;
         try {
             int id;
-            json = readJsonFromUrl("https://api.themoviedb.org/3/search/multi?api_key=33890a00119dd4252bba26f546853049&language=es&query=" + nombre + "&page=1&include_adult=false");
+            json = readJsonFromUrl("https://api.themoviedb.org/3/search/movie?api_key=33890a00119dd4252bba26f546853049&language=es&query=" + nombre + "&page=1&include_adult=false");
             json = json.getJSONArray("results").getJSONObject(0);
             id = Integer.parseInt(json.get("id").toString());
             //después de obtener el id busco la peli con mas datos
-            if (json.get("media_type").toString().equals("movie")) {
                 json = readJsonFromUrl("https://api.themoviedb.org/3/movie/" + id + "?api_key=33890a00119dd4252bba26f546853049&language=es");
 
-            } else {
-                json = readJsonFromUrl("https://api.themoviedb.org/3/tv/" + id + "?api_key=33890a00119dd4252bba26f546853049&language=es");
-            }
+
             System.out.println(json.toString());
             //devuelve el primer resultado
         }catch (FileNotFoundException e){
@@ -87,7 +93,9 @@ public class ContenidoMultimedia {
         if(error){
             res=0;
         }else{
-            res=Integer.parseInt(infoPelicula.get("runtime").toString());
+
+                res = Integer.parseInt(infoPelicula.get("runtime").toString());
+
         }
         return res;
     }
@@ -97,7 +105,9 @@ public class ContenidoMultimedia {
         if(error){
             res="error";
         }else{
-            res=infoPelicula.get("overview").toString();
+
+                res = infoPelicula.get("overview").toString();
+
         }
 
         return res;
@@ -126,7 +136,8 @@ public class ContenidoMultimedia {
             res="https://i.pinimg.com/736x/b7/d0/b6/b7d0b611d3d927b74c6b71f5e797a5fe.jpg";
 
         }else{
-            res="https://image.tmdb.org/t/p/w500"+infoPelicula.get("poster_path").toString();
+                res = "https://image.tmdb.org/t/p/w500" + infoPelicula.get("poster_path").toString();
+
         }
         return res;
     }
@@ -136,7 +147,8 @@ public class ContenidoMultimedia {
             res="error";
 
         }else{
-            res=infoPelicula.getJSONArray("production_companies").getJSONObject(0).get("name").toString();
+                res=infoPelicula.getJSONArray("production_companies").getJSONObject(0).get("name").toString();
+
         }
         return res;
     }
@@ -145,7 +157,8 @@ public class ContenidoMultimedia {
         if(error){
             res="error";
         }else{
-         res=infoPelicula.get("release_date").toString();
+                    res = infoPelicula.get("release_date").toString();
+
         }
         return res;
     }
@@ -161,7 +174,6 @@ public class ContenidoMultimedia {
         }
         return res;
     }
-
 
 
 
