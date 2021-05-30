@@ -83,7 +83,7 @@ public class ContenidoMultimedia {
         return infoPelicula.get("overview").toString();
     }
     public String getGenero(){
-        return infoPelicula.getJSONArray("genres").getJSONObject(1).get("name").toString();
+        return infoPelicula.getJSONArray("genres").getJSONObject(0).get("name").toString();
     }
     public String getNombre(){
         return infoPelicula.get("original_title").toString();
@@ -92,7 +92,7 @@ public class ContenidoMultimedia {
         return ("https://image.tmdb.org/t/p/w500"+infoPelicula.get("poster_path").toString());
     }
     public String getProductora(){
-        return infoPelicula.getJSONArray("production_companies").getJSONObject(1).get("name").toString();
+        return infoPelicula.getJSONArray("production_companies").getJSONObject(0).get("name").toString();
     }
     public String getFechaEstreno(){
         return infoPelicula.get("release_date").toString();
