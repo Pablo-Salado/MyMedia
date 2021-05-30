@@ -8,6 +8,9 @@ package GUIS.logingui.logingui;
 import db.access.*;
 
 import javax.swing.JFrame;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author adrig
@@ -533,7 +536,7 @@ public class LoginGUI extends javax.swing.JFrame {
        String passwordConfirm = TextConfirm.getText();
        
        if(conec.checkFreeUserName(user) && conec.checkFreeEmail(correo) && password.equals(passwordConfirm)&& !user.isEmpty() 
-               && !correo.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty() && Termino_Condiciones.isSelected()){
+               && !correo.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty() && Termino_Condiciones.isSelected() && checkGoodFormat(correo)){
             User usuario = new User(user, correo, password);
             conec.addUser(usuario);
             PanelInicioSesion.setVisible(true);
@@ -541,7 +544,7 @@ public class LoginGUI extends javax.swing.JFrame {
        }else{
            //Selecciono el error.
            
-           if(!conec.checkFreeEmail(correo))
+           if(!conec.checkFreeEmail(correo) || !checkGoodFormat(correo))
                     errorCorreo.setVisible(true);
            
            if(!conec.checkFreeUserName(user))
@@ -554,6 +557,14 @@ public class LoginGUI extends javax.swing.JFrame {
                   errorTerminos.setVisible(true);        
        }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    public boolean checkGoodFormat(String correo) {
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mather = pattern.matcher(correo);
+        return mather.find();
+    }
 
     private void TextCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCorreoActionPerformed
         // TODO add your handling code here:
