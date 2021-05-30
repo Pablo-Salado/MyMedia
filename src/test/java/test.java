@@ -32,7 +32,7 @@ public class test {
 
         DBAccess.addUser(user);
     }*/
-        DBAccess.createTopic("texto","hola",2);
+
 
     }
 

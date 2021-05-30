@@ -17,8 +17,9 @@ public class LoginGUI extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    String globalUser = null;
-    
+    String globalUser;
+    private boolean isLogued = false;
+
     public LoginGUI() {
        
         initComponents(); 
@@ -481,11 +482,12 @@ public class LoginGUI extends javax.swing.JFrame {
         DBConnectionJDBC conec = DBConnectionJDBC.getInstance();
         //Verificar que no esta creado ya el usuario
         String user = TextFieldUsuario.getText();
-
         String password = TextFieldPassword.getText();
-        if(!conec.checkFreeUserName(user)  && conec.checkPassword(user,password)){
+        if(!conec.checkFreeUserName(user)  && conec.checkPassword(user,password) && !TextFieldUsuario.getText().isEmpty()){
             BORRAR.setVisible(true);
+            System.out.println("Valido");
             globalUser = user;
+            isLogued = true;
         }else{
             MensajeError.setVisible(true);
         }
@@ -617,5 +619,9 @@ public class LoginGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+
+    public boolean logued() {
+        return isLogued;
+    }
     // End of variables declaration//GEN-END:variables
 }
