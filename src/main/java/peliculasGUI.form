@@ -139,21 +139,28 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jFechaEstreno" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="jCaratula" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
-                              <Component id="jDuracion" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="jProductora" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
                               <Component id="jPuntuacion" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
-                              <Component id="jGenero" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
+                              <Component id="jProductora" alignment="0" min="-2" pref="413" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jFechaEstreno" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Component id="jCaratula" alignment="0" min="-2" pref="244" max="-2" attributes="0"/>
+                                      <Component id="jDuracion" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jSinopsis" min="-2" pref="476" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="jSinopsis" min="-2" pref="361" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="jGenero" min="-2" pref="607" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="125" max="32767" attributes="0"/>
+                  <EmptySpace pref="247" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -169,21 +176,19 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jCaratula" min="-2" pref="312" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jFechaEstreno" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jDuracion" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jProductora" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jPuntuacion" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jGenero" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jSinopsis" max="32767" attributes="0"/>
+                      <Component id="jSinopsis" min="-2" pref="297" max="-2" attributes="0"/>
+                      <Component id="jCaratula" min="-2" pref="312" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jFechaEstreno" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jDuracion" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <Component id="jProductora" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jPuntuacion" pref="29" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jGenero" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -247,6 +252,13 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value="Car&#xe1;tula:"/>
             <Property name="verticalAlignment" type="int" value="1"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder>
+                  <Color PropertyName="highlightInner" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+                </BevelBorder>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jFechaEstreno">

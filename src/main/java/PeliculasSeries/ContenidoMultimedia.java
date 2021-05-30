@@ -132,9 +132,15 @@ public  class ContenidoMultimedia {
             try{//name
                 JSONArray j;
                 j=infoPelicula.getJSONArray("genres");
-                for(int cont=0;cont<j.length();cont++){
+                int cont=0;
+                while(cont<j.length()-1){
+
                     res.append(j.getJSONObject(cont).get("name").toString()+",");
+                    cont++;
                 }
+                res.append(j.getJSONObject(cont).get("name").toString());
+
+
 
             }catch (Exception e){
                 res.append("no disponible");
