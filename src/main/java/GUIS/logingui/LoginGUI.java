@@ -361,7 +361,7 @@ public class LoginGUI extends javax.swing.JFrame {
         BotonInicioSesion.setBackground(new java.awt.Color(153, 153, 255));
         BotonInicioSesion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BotonInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
-        BotonInicioSesion.setText("Iniciar Sesi�n");
+        BotonInicioSesion.setText("Iniciar Sesion");
         BotonInicioSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         BotonInicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
