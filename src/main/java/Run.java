@@ -14,10 +14,11 @@ public class Run {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                loginGUI.setVisible(true);
+               // loginGUI.setVisible(true);
+                frame_foro.setVisible(true);
                 if(loginGUI.logued())
                     System.out.println(loginGUI.getUsername());
-                    DBAccess.createTopic("Topic de prueba",loginGUI.getUsername(),2);
+                    //DBAccess.createTopic("Topic de prueba",loginGUI.getUsername(),2);
                 //new Frame_Foro().setVisible(true);
 
             }

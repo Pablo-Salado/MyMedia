@@ -1,9 +1,11 @@
-D:\Archivos de programa\GitHub\IIS\MyMedia\src\main\java\foro\Mensaje.java
-D:\Archivos de programa\GitHub\IIS\MyMedia\src\main\java\foro\Discusion.java
-D:\Archivos de programa\GitHub\IIS\MyMedia\src\main\java\Run.java
-D:\Archivos de programa\GitHub\IIS\MyMedia\src\main\java\db\access\DBConnectionJDBC.java
-D:\Archivos de programa\GitHub\IIS\MyMedia\src\main\java\db\access\User.java
-D:\Archivos de programa\GitHub\IIS\MyMedia\src\main\java\GUIS\forogui\Frame_Foro.java
-D:\Archivos de programa\GitHub\IIS\MyMedia\src\main\java\GUIS\logingui\logingui\LoginGUI.java
-D:\Archivos de programa\GitHub\IIS\MyMedia\src\main\java\db\access\DBConnection.java
-D:\Archivos de programa\GitHub\IIS\MyMedia\src\main\java\foro\Foro.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\db\access\DBConnectionJDBC.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\GUIS\logingui\logingui\LoginGUI.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\foro\Foro.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\foro\Mensaje.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\foro\Discusion.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\GUIS\forogui\DiscusionButton.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\Run.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\GUIS\forogui\Frame_Foro.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\db\access\User.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\GUIS\forogui\CrearDisc.java
+C:\Users\USUARIO\Documents\GitHub\MyMedia\src\main\java\db\access\DBConnection.java
