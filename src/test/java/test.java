@@ -13,10 +13,9 @@ public class test {
 
         List<String> res = new ArrayList<String>();
 
-        res = dbConnection.getTopicMessages(19);
+        res = dbConnection.getTopics(2);
 
         for(String x: res)
             System.out.println(x);
-
     }
 }

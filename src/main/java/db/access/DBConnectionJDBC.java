@@ -185,8 +185,20 @@ public class DBConnectionJDBC extends DBConnection {
 
     @Override
     public List<String> getTopics(int idForo) {
-        //TODO
-        return null;
+        String getTopicsCommandSQL = "SELECT titulo FROM Discusion WHERE idForo = ?";
+        List<String> topics = new ArrayList<String>();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(getTopicsCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, String.valueOf(idForo));
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                topics.add(rs.getString("titulo"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return topics;
     }
 
 }
