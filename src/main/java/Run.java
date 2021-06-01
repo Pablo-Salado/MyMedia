@@ -1,11 +1,8 @@
 import GUIS.forogui.Frame_Foro;
-import GUIS.logingui.logingui.LoginGUI;
+import GUIS.logingui.LoginGUI;
+import GUIS.peliculasgui.peliculasGUI;
 import db.access.DBConnection;
 import db.access.DBConnectionJDBC;
-
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 
 public class Run {
@@ -18,10 +15,9 @@ public class Run {
         peliculasGUI peliculasGUI = new peliculasGUI();
 
         loginGUI.setVisible(true);
-        while (!loginGUI.logued()){
+        while (!loginGUI.logued())
             Thread.yield();
-        }
         loginGUI.setVisible(false);
-        peliculasGUI.setVisible(true);
+        frame_foro.setVisible(true);
     }
 }
