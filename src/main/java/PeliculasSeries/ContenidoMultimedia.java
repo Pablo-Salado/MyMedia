@@ -26,7 +26,6 @@ public  class ContenidoMultimedia {
         nombre=nombre.replace(" ","-");
         try{
             obtenerMultimedia(nombre);
-            System.out.println(actores.toString());
 
 
         }
@@ -220,7 +219,6 @@ public  class ContenidoMultimedia {
             }
 
         }
-        System.out.println(getActores());
         return res;
     }
     public String getActores(){
