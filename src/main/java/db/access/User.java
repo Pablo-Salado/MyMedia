@@ -1,5 +1,5 @@
 package db.access;
-
+//@author Andrés Garrido López
 import java.sql.Date;
 
 public class User {

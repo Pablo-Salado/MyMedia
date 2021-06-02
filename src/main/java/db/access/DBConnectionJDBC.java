@@ -1,5 +1,6 @@
 package db.access;
 /*  @author Andrés Garrido López
+    @author Arthur Eboh Chukwuka Pérez
     Clase para establecer conexión con la base de datos de aws
     Basado en el github del profesor Jose María �?lvarez Palomo(UMA) https://github.com/JoseMariaAlvarez/conexionBD
 */
