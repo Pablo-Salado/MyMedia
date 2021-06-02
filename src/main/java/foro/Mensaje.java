@@ -5,6 +5,11 @@ public class Mensaje {
     private final String autor;
     private final String fecha;
     
+    
+    public Mensaje(String mensaje, String autor) {
+        this(mensaje, autor, null);
+    }
+    
     public Mensaje(String mensaje, String autor, String fecha) {
         this.mensaje = mensaje;
         this.autor = autor;

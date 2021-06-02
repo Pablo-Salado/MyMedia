@@ -5,6 +5,7 @@ package db.access;
 */
 
 
+import java.util.List;
 
 public abstract class DBConnection {
     static final String DB_URL = "jdbc:mysql://iis2021.cobadwnzalab.eu-central-1.rds.amazonaws.com";
@@ -24,7 +25,8 @@ public abstract class DBConnection {
 
     public abstract void createTopic(String title,String username,int id);
     public abstract void createForum(String title);
-    public abstract void createMessage(String Text,String username,int id);
+    public abstract void createMessage(String Text,String username,int idDiscusion);
     public abstract void deleteMessage(int id);
-
+    public abstract List<String> getTopicMessages(int idDiscusion);
+    public abstract List<String> getTopics(int idForo);
 }

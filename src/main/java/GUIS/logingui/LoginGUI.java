@@ -1,4 +1,4 @@
-package GUIS.logingui.logingui;
+package GUIS.logingui;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,6 +22,7 @@ public class LoginGUI extends javax.swing.JFrame {
      */
     String globalUser;
     private boolean isLogued = false;
+    loguinguiMethods loginguiMethods= new loguinguiMethods();
 
     public LoginGUI() {
        
@@ -221,7 +222,7 @@ public class LoginGUI extends javax.swing.JFrame {
         Termino_Condiciones.setBackground(new java.awt.Color(153, 153, 255));
         Termino_Condiciones.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         Termino_Condiciones.setForeground(new java.awt.Color(255, 255, 255));
-        Termino_Condiciones.setText("*Acepto los términos y condiciones");
+        Termino_Condiciones.setText("*Acepto los tï¿½rminos y condiciones");
         Termino_Condiciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Termino_CondicionesActionPerformed(evt);
@@ -229,21 +230,21 @@ public class LoginGUI extends javax.swing.JFrame {
         });
 
         errorTerminos.setForeground(new java.awt.Color(255, 0, 0));
-        errorTerminos.setText("*Debe aceptar los términos y condiciones para poder continuar con el registro.");
+        errorTerminos.setText("*Debe aceptar los tï¿½rminos y condiciones para poder continuar con el registro.");
 
         errorCorreo.setForeground(new java.awt.Color(255, 0, 0));
-        errorCorreo.setText("*El correo no es válido, inténtelo de nuevo");
+        errorCorreo.setText("*El correo no es vï¿½lido, intï¿½ntelo de nuevo");
 
         errorUsuario.setForeground(new java.awt.Color(255, 0, 0));
-        errorUsuario.setText("*El usuario ya ha sido utilizado, inserte un usuario válido");
+        errorUsuario.setText("*El usuario ya ha sido utilizado, inserte un usuario vï¿½lido");
 
         errorPassword.setForeground(new java.awt.Color(255, 0, 0));
-        errorPassword.setText("*Las contraseñas no coincide, inténtelo de nuevo.");
+        errorPassword.setText("*Las contraseï¿½as no coincide, intï¿½ntelo de nuevo.");
 
         jButton2.setBackground(new java.awt.Color(153, 153, 255));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/baseline_undo_white_24dp.png"))); // NOI18N
-        jButton2.setText("Atrás");
+        jButton2.setText("Atrï¿½s");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -360,7 +361,7 @@ public class LoginGUI extends javax.swing.JFrame {
         BotonInicioSesion.setBackground(new java.awt.Color(153, 153, 255));
         BotonInicioSesion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BotonInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
-        BotonInicioSesion.setText("Iniciar Sesión");
+        BotonInicioSesion.setText("Iniciar Sesion");
         BotonInicioSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         BotonInicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -496,8 +497,6 @@ public class LoginGUI extends javax.swing.JFrame {
         return isLogued;
     }
 
-
-
     private void BotonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInicioSesionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonInicioSesionActionPerformed
@@ -531,7 +530,7 @@ public class LoginGUI extends javax.swing.JFrame {
        String passwordConfirm = TextConfirm.getText();
        
        if(conec.checkFreeUserName(user) && conec.checkFreeEmail(correo) && password.equals(passwordConfirm)&& !user.isEmpty() 
-               && !correo.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty() && Termino_Condiciones.isSelected() && checkGoodFormat(correo)){
+               && !correo.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty() && Termino_Condiciones.isSelected() && loguinguiMethods.checkGoodFormat(correo)){
             User usuario = new User(user, correo, password);
             conec.addUser(usuario);
             PanelInicioSesion.setVisible(true);
@@ -539,7 +538,7 @@ public class LoginGUI extends javax.swing.JFrame {
        }else{
            //Selecciono el error.
            
-           if(!conec.checkFreeEmail(correo) || !checkGoodFormat(correo))
+           if(!conec.checkFreeEmail(correo) || !loguinguiMethods.checkGoodFormat(correo))
                     errorCorreo.setVisible(true);
            
            if(!conec.checkFreeUserName(user))
@@ -553,13 +552,7 @@ public class LoginGUI extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_jButton1MouseClicked
 
-    public boolean checkGoodFormat(String correo) {
-        Pattern pattern = Pattern
-                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        Matcher mather = pattern.matcher(correo);
-        return mather.find();
-    }
+
 
     private void TextCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCorreoActionPerformed
         // TODO add your handling code here:

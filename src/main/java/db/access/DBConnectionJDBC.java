@@ -5,6 +5,8 @@ package db.access;
 */
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBConnectionJDBC extends DBConnection {
     private Connection connection;
@@ -138,13 +140,13 @@ public class DBConnectionJDBC extends DBConnection {
     }
 
     @Override
-    public void createMessage(String Text, String username,int id) {
+    public void createMessage(String Text, String username,int idDiscusion) {
         String createMessageCommandSQL = "INSERT INTO Mensaje(id,cuerpo,idDiscusion,autor) VALUES (id,?,?,?)";
         
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(createMessageCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1,Text);
-            preparedStatement.setInt(2,id);
+            preparedStatement.setInt(2,idDiscusion);
             preparedStatement.setString(3,username);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
@@ -162,6 +164,41 @@ public class DBConnectionJDBC extends DBConnection {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    @Override
+    public List<String> getTopicMessages(int idDiscusion) {
+        String getTopicMessagesCommandSQL = "SELECT cuerpo FROM Mensaje WHERE idDiscusion = ?";
+        List<String> messages = new ArrayList<String>();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(getTopicMessagesCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, String.valueOf(idDiscusion));
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                messages.add(rs.getString("cuerpo"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return messages;
+    }
+
+    @Override
+    public List<String> getTopics(int idForo) {
+        String getTopicsCommandSQL = "SELECT titulo FROM Discusion WHERE idForo = ?";
+        List<String> topics = new ArrayList<String>();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(getTopicsCommandSQL,PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, String.valueOf(idForo));
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                topics.add(rs.getString("titulo"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return topics;
     }
 
 }
