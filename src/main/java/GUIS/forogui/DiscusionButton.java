@@ -21,13 +21,16 @@ public class DiscusionButton extends JButton implements ActionListener {
     private JFrame j;
     private DBConnection con;
     private String usuario;
-    public DiscusionButton(String texto,JFrame f, DBConnection connect,String usuario)
+    private int ID;
+    public DiscusionButton(String texto,JFrame f,
+            DBConnection connect,String usuario,int ID)
     {
-        Dimension d = new Dimension(703,42);
+        Dimension d = new Dimension(703,44);
         Discusion = texto;
         j = f;
         con = connect;
         this.usuario = usuario;
+        this.ID = ID;
         this.setText(texto);
         this.setPreferredSize(d);
         this.setMaximumSize(d);
@@ -36,7 +39,7 @@ public class DiscusionButton extends JButton implements ActionListener {
     {
      @Override
     public void actionPerformed(ActionEvent e) {
-        DiscusionDialog dial = new DiscusionDialog(j,false,Discusion,con,usuario);
+        DiscusionDialog dial = new DiscusionDialog(j,false,Discusion,con,usuario,ID);
         dial.setTitle(Discusion);
         dial.setLocationRelativeTo(null);
         dial.setFocusable(true);

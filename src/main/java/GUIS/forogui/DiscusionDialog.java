@@ -6,6 +6,11 @@
 package GUIS.forogui;
 
 import db.access.DBConnection;
+import java.awt.Color;
+import java.util.List;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 /**
  *
@@ -15,18 +20,56 @@ public class DiscusionDialog extends javax.swing.JDialog {
 
     private DBConnection db;
     private String usuario;
+    private int index;
+    private List<String> msj;
     /**
      * Creates new form DiscusionDialog
      */
-    public DiscusionDialog(java.awt.Frame parent, boolean modal,String s,DBConnection connect,String usuario) {
+     private void crearMsj(List<String> msj,JPanel p,JTabbedPane pane)
+    {
+        int n = msj.size();
+        rellenar(n,p,msj);
+        n-=9;
+        int i = 2;
+        while(n>0)
+        {
+            JPanel aux = new JPanel();
+            pane.add(aux,Integer.toString(i));
+            rellenar(n,aux,msj);
+            n-=9;
+            i++;
+        }
+        index = 0;
+    }
+    private void rellenar(int n,JPanel p,List<String> disc)
+    {
+        p.setLayout(new BoxLayout(p,BoxLayout.Y_AXIS));
+    for(int i = 0;i<Math.min(n, 9);i++)
+        {
+        
+        p.add(new MensajePanel(disc.get(index)));
+        index++;
+        }
+    }
+
+    private int ID;
+    public DiscusionDialog(java.awt.Frame parent, 
+            boolean modal,String s,DBConnection connect,String usuario,int ID) {
         super(parent, modal);
         initComponents();
         this.setTitle(s);
         jLabel1.setText(s);
-        this.db = db;
+        this.db = connect;
         this.usuario = usuario;
+        this.ID = ID;
+        this.msj = db.getTopicMessages(ID);
+        index = 0;
+        crearMsj(msj,jPanel2,jTabbedPane1);
+        ErrorLabel.setVisible(false);
+        
     }
 
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,36 +81,31 @@ public class DiscusionDialog extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         SalirButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        ErrorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 0));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(94, 99, 182));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 631, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1857, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("1", jPanel2);
-
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("jLabel1");
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(625, 1260));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
+        jTabbedPane1.addTab("1", jPanel2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,6 +150,10 @@ public class DiscusionDialog extends javax.swing.JDialog {
             }
         });
 
+        jButton2.setText("Refrescar");
+
+        ErrorLabel.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,14 +162,18 @@ public class DiscusionDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 4, Short.MAX_VALUE)
+                        .addGap(0, 19, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SalirButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ErrorLabel)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(SalirButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -137,24 +183,50 @@ public class DiscusionDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SalirButton)
-                        .addContainerGap())
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ErrorLabel)
+                        .addGap(3, 3, 3))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirButtonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_SalirButtonActionPerformed
 
+    private void refrescar(int ID)
+    {
+         jTabbedPane1.removeAll();
+         jPanel2.removeAll();
+         jTabbedPane1.add(jPanel2,"1");
+         msj = db.getTopicMessages(ID);
+         crearMsj(msj,jPanel2,jTabbedPane1);
+         System.out.println(msj.get(0));
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here
-        db.createMessage(jTextArea1.getText(), usuario, 1); 
+        if(jTextArea1.getText().length()>=1)
+        {
+         
+            
+             db.createMessage(jTextArea1.getText(), usuario, ID); 
+             refrescar(ID);
+             jTextArea1.setText("");
+             ErrorLabel.setVisible(false);
+        }else{
+            ErrorLabel.setForeground(Color.red);
+            ErrorLabel.setText("Texto vacío");
+            ErrorLabel.setVisible(true);
+            //jTextArea1.setForeground(Color.black);
+        }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -163,8 +235,10 @@ public class DiscusionDialog extends javax.swing.JDialog {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ErrorLabel;
     private javax.swing.JButton SalirButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
