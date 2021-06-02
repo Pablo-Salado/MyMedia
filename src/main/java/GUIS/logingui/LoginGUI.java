@@ -222,7 +222,7 @@ public class LoginGUI extends javax.swing.JFrame {
         Termino_Condiciones.setBackground(new java.awt.Color(153, 153, 255));
         Termino_Condiciones.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         Termino_Condiciones.setForeground(new java.awt.Color(255, 255, 255));
-        Termino_Condiciones.setText("*Acepto los tï¿½rminos y condiciones");
+        Termino_Condiciones.setText("*Acepto los términos y condiciones");
         Termino_Condiciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Termino_CondicionesActionPerformed(evt);
@@ -230,21 +230,21 @@ public class LoginGUI extends javax.swing.JFrame {
         });
 
         errorTerminos.setForeground(new java.awt.Color(255, 0, 0));
-        errorTerminos.setText("*Debe aceptar los tï¿½rminos y condiciones para poder continuar con el registro.");
+        errorTerminos.setText("*Debe aceptar los términos y condiciones para poder continuar con el registro.");
 
         errorCorreo.setForeground(new java.awt.Color(255, 0, 0));
-        errorCorreo.setText("*El correo no es vï¿½lido, intï¿½ntelo de nuevo");
+        errorCorreo.setText("*El correo no es válido, inténtelo de nuevo");
 
         errorUsuario.setForeground(new java.awt.Color(255, 0, 0));
-        errorUsuario.setText("*El usuario ya ha sido utilizado, inserte un usuario vï¿½lido");
+        errorUsuario.setText("*El usuario ya ha sido utilizado, inserte un usuario válido");
 
         errorPassword.setForeground(new java.awt.Color(255, 0, 0));
-        errorPassword.setText("*Las contraseï¿½as no coincide, intï¿½ntelo de nuevo.");
+        errorPassword.setText("*Las contraseñas no coincide, inténtelo de nuevo.");
 
         jButton2.setBackground(new java.awt.Color(153, 153, 255));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/baseline_undo_white_24dp.png"))); // NOI18N
-        jButton2.setText("Atrï¿½s");
+        jButton2.setText("Atrás");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -283,7 +283,7 @@ public class LoginGUI extends javax.swing.JFrame {
                     .addComponent(Termino_Condiciones)
                     .addComponent(errorTerminos)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(327, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRegistroLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,7 +361,7 @@ public class LoginGUI extends javax.swing.JFrame {
         BotonInicioSesion.setBackground(new java.awt.Color(153, 153, 255));
         BotonInicioSesion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BotonInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
-        BotonInicioSesion.setText("Iniciar Sesion");
+        BotonInicioSesion.setText("Iniciar Sesión");
         BotonInicioSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         BotonInicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
