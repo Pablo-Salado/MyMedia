@@ -220,6 +220,7 @@ public  class ContenidoMultimedia {
             }
 
         }
+        System.out.println(getActores());
         return res;
     }
     public String getActores(){
@@ -230,7 +231,8 @@ public  class ContenidoMultimedia {
 
             JSONArray c = actores.getJSONArray("cast");
             int cont=0;
-            while(cont<c.length()-1){
+            int tope = 10;
+            while(cont<c.length()-1 && cont < tope){
                 res.append(c.getJSONObject(cont).get("name").toString()+",");
                 cont++;
             }
