@@ -25,6 +25,7 @@ public class peliculasGUI extends javax.swing.JFrame {
     /**
      * Creates new form peliculasGUI
      */
+    boolean foro = false;
     public peliculasGUI() {
         initComponents();
     }
@@ -195,6 +196,11 @@ public class peliculasGUI extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Foro");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -327,7 +333,14 @@ public class peliculasGUI extends javax.swing.JFrame {
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jMinimizarMouseClicked
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        foro = true;
+    }//GEN-LAST:event_jButton2MouseClicked
 
+    public boolean getForo () {
+        return foro;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
