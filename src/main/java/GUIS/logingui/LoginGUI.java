@@ -7,7 +7,7 @@ package GUIS.logingui;
  */
 import db.access.*;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -451,6 +451,8 @@ public class LoginGUI extends javax.swing.JFrame {
                 .addComponent(PanelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/logomymedia.png"));
+        setIconImage(img.getImage());
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
