@@ -46,13 +46,14 @@ public class peliculasGUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextoBuscador = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jSinopsis = new javax.swing.JLabel();
         jCaratula = new javax.swing.JLabel();
         jFechaEstreno = new javax.swing.JLabel();
         jDuracion = new javax.swing.JLabel();
         jProductora = new javax.swing.JLabel();
         jPuntuacion = new javax.swing.JLabel();
         jGenero = new javax.swing.JLabel();
+        jNombre = new javax.swing.JLabel();
+        jSinopsis = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,7 +99,6 @@ public class peliculasGUI extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(94, 99, 182));
-        jPanel2.setForeground(new java.awt.Color(60, 63, 65));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,14 +113,6 @@ public class peliculasGUI extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-
-        jSinopsis.setBackground(new java.awt.Color(187, 187, 187));
-        jSinopsis.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jSinopsis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jSinopsis.setText("Sinopsis: ");
-        jSinopsis.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jSinopsis.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jSinopsis.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         jCaratula.setBackground(new java.awt.Color(255, 255, 255));
         jCaratula.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -151,36 +143,40 @@ public class peliculasGUI extends javax.swing.JFrame {
         jGenero.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jGenero.setText("Género: ");
 
+        jNombre.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jNombre.setText("Título:");
+
+        jSinopsis.setBackground(new java.awt.Color(187, 187, 187));
+        jSinopsis.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jSinopsis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jSinopsis.setText("Sinopsis: ");
+        jSinopsis.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jSinopsis.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jSinopsis.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextoBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jTextoBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jProductora, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFechaEstreno, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(247, Short.MAX_VALUE))
+                        .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jNombre)
+                    .addComponent(jFechaEstreno, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jProductora, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(616, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,21 +187,23 @@ public class peliculasGUI extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextoBuscador))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCaratula, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSinopsis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCaratula, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jNombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jFechaEstreno)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jDuracion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jProductora)
-                .addGap(18, 18, 18)
-                .addComponent(jPuntuacion, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPuntuacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jGenero)
-                .addGap(242, 242, 242))
+                .addGap(447, 447, 447))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -243,6 +241,7 @@ public class peliculasGUI extends javax.swing.JFrame {
             image = ImageIO.read(url);
             image = image.getScaledInstance(jCaratula.getWidth(), jCaratula.getHeight(), Image.SCALE_SMOOTH);
             jCaratula.setIcon(new ImageIcon(image));
+            jNombre.setText("<html> Título: " + cm.getNombre() + "<html>");
             jFechaEstreno.setText("<html> Fecha de estreno: " + cm.getFechaEstreno() + "<html>");
             jDuracion.setText("<html> Duración: " + cm.getDuracion() + " minutos <html>");
             jProductora.setText("<html> Productora: " + cm.getProductora()+ "<html>");
@@ -270,6 +269,7 @@ public class peliculasGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jNombre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jProductora;

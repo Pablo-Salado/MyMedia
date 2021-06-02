@@ -15,7 +15,6 @@ import org.w3c.dom.DOMImplementation;
 public  class ContenidoMultimedia {
     JSONObject infoPelicula;
     Boolean error=false;
-    int tipo; //0 si es pelicula , 1 si es una serie
 
 
 
@@ -23,12 +22,7 @@ public  class ContenidoMultimedia {
         nombre=nombre.replace(" ","-");
         try{
             infoPelicula=obtenerMultimedia(nombre);
-            try{
-                infoPelicula.get("number_of_episodes");
-                tipo=1;
-            }catch (Exception e){
-                tipo=0;
-            }
+
 
         }
         catch (Exception e){
@@ -46,7 +40,7 @@ public  class ContenidoMultimedia {
             json = json.getJSONArray("results").getJSONObject(0);
             id = Integer.parseInt(json.get("id").toString());
             //después de obtener el id busco la peli con mas datos
-                json = readJsonFromUrl("https://api.themoviedb.org/3/movie/" + id + "?api_key=33890a00119dd4252bba26f546853049&language=es");
+            json = readJsonFromUrl("https://api.themoviedb.org/3/movie/" + id + "?api_key=33890a00119dd4252bba26f546853049&language=es");
 
 
             System.out.println(json.toString());
@@ -95,11 +89,11 @@ public  class ContenidoMultimedia {
             res="error";
         }else{
 
-                try{
-                    res = (infoPelicula.get("runtime").toString());
+            try{
+                res = (infoPelicula.get("runtime").toString());
 
-                }catch ( Exception e){
-                    res="no disponible";
+            }catch ( Exception e){
+                res="no disponible";
             }
         }
         return res;
@@ -111,11 +105,11 @@ public  class ContenidoMultimedia {
             res="error";
         }else{
             try{
-            res =  res = infoPelicula.get("overview").toString();
+                res =  res = infoPelicula.get("overview").toString();
 
-        }catch ( Exception e){
-            res="no disponible";
-        }
+            }catch ( Exception e){
+                res="no disponible";
+            }
 
 
 
