@@ -15,11 +15,11 @@ public class test{
 
         DBConnection dbConnection = DBConnectionJDBC.getInstance();
 
-        /*List<String> res = new ArrayList<String>();
+        List<String> res = new ArrayList<String>();
 
-        res = dbConnection.getTopics(2);
+        res = dbConnection.getTopicsID(1);
 
         for(String x: res)
-            System.out.println(x);*/
+            System.out.println(x);
     }
 }
