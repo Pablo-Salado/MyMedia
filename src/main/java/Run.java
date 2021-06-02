@@ -16,20 +16,19 @@ public class Run {
         peliculasGUI peliculasGUI = new peliculasGUI();
 
         Frame_Foro frame_foro = new Frame_Foro(DBAccess,loginGUI.getUsername());
-       
         loginGUI.setVisible(true);
         while (!loginGUI.logued())
             Thread.yield();
-
         loginGUI.setVisible(false);
-        peliculasGUI.setVisible(true);
-
         while(true){
-            while(!peliculasGUI.getForo()) {
+            peliculasGUI.setVisible(true);
+            while(!peliculasGUI.getForo())
                 Thread.yield();
-            }
+
             peliculasGUI.setVisible(false);
             frame_foro.setVisible(true);
+            while(true)
+                Thread.yield();
         }
     }
 }
