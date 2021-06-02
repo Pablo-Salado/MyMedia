@@ -3,6 +3,7 @@
 package PeliculasSeries;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Scanner;
@@ -16,6 +17,7 @@ import org.w3c.dom.DOMImplementation;
 
 public  class ContenidoMultimedia {
     JSONObject infoPelicula;
+    JSONObject actores;
     Boolean error=false;
 
 
@@ -23,7 +25,8 @@ public  class ContenidoMultimedia {
     public ContenidoMultimedia(String nombre) throws IOException { //al constructor se le pasa el nombre de la película,la busca y configura
         nombre=nombre.replace(" ","-");
         try{
-            infoPelicula=obtenerMultimedia(nombre);
+            obtenerMultimedia(nombre);
+            System.out.println(actores.toString());
 
 
         }
@@ -34,8 +37,9 @@ public  class ContenidoMultimedia {
 
     }
 
-    private static JSONObject obtenerMultimedia(String nombre) throws IOException {
+    public void obtenerMultimedia(String nombre) throws IOException {
         JSONObject json=null;
+        JSONObject jsonact=null;
         try {
             int id;
             json = readJsonFromUrl("https://api.themoviedb.org/3/search/movie?api_key=33890a00119dd4252bba26f546853049&language=es&query=" + nombre + "&page=1&include_adult=false");
@@ -44,14 +48,20 @@ public  class ContenidoMultimedia {
             //después de obtener el id busco la peli con mas datos
             json = readJsonFromUrl("https://api.themoviedb.org/3/movie/" + id + "?api_key=33890a00119dd4252bba26f546853049&language=es");
 
+            jsonact=readJsonFromUrl("https://api.themoviedb.org/3/movie/"+id+"/credits?api_key=33890a00119dd4252bba26f546853049&language=es");
+
+
 
             System.out.println(json.toString());
             //devuelve el primer resultado
         }catch (FileNotFoundException e){
             System.out.println("La pelicula no ha podido ser encontrada");
             json=null;
+            jsonact=null;
         }
-        return json;
+        infoPelicula=json;
+        actores=jsonact;
+
     }
 
 
@@ -225,6 +235,27 @@ public  class ContenidoMultimedia {
 
         }
         return res;
+    }
+    public String getActores(){
+        StringBuilder res = new StringBuilder();
+
+        try {
+
+
+            JSONArray c = actores.getJSONArray("cast");
+            int cont=0;
+            while(cont<c.length()-1){
+                res.append(c.getJSONObject(cont).get("name").toString()+",");
+                cont++;
+            }
+            res.append(c.getJSONObject(cont).get("name").toString());
+        }catch (Exception e){
+            res = null;
+        }
+
+        return res.toString();
+
+
     }
 
 
