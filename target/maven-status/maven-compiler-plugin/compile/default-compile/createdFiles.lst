@@ -3,9 +3,14 @@ foro\Mensaje.class
 GUIS\peliculasgui\peliculasGUI$2.class
 GUIS\forogui\Frame_Foro$5.class
 GUIS\forogui\CrearDisc$1.class
+GUIS\forogui\DiscusionDialog$1.class
 foro\Discusion.class
 GUIS\forogui\CrearDisc$2.class
 Run.class
+GUIS\peliculasgui\peliculasGUI$4.class
 foro\Foro.class
+GUIS\forogui\DiscusionDialog.class
 GUIS\forogui\CrearDisc.class
+GUIS\forogui\DiscusionDialog$2.class
+GUIS\forogui\CrearDisc$3.class
 GUIS\peliculasgui\peliculasGUI$3.class

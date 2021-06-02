@@ -14,12 +14,22 @@ public class Run {
         DBConnection DBAccess = DBConnectionJDBC.getInstance();
         
         peliculasGUI peliculasGUI = new peliculasGUI();
+
+        Frame_Foro frame_foro = new Frame_Foro(DBAccess,loginGUI.getUsername());
        
         loginGUI.setVisible(true);
         while (!loginGUI.logued())
             Thread.yield();
-        Frame_Foro frame_foro = new Frame_Foro(DBAccess,loginGUI.getUsername());
+
         loginGUI.setVisible(false);
-        frame_foro.setVisible(true);
+        peliculasGUI.setVisible(true);
+
+        while(true){
+            while(!peliculasGUI.getForo()) {
+                Thread.yield();
+            }
+            peliculasGUI.setVisible(false);
+            frame_foro.setVisible(true);
+        }
     }
 }
