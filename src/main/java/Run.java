@@ -4,7 +4,6 @@ import GUIS.peliculasgui.peliculasGUI;
 import db.access.DBConnection;
 import db.access.DBConnectionJDBC;
 
-
 public class Run {
 
     public static void main(String[] args) throws InterruptedException {
@@ -18,6 +17,6 @@ public class Run {
         while (!loginGUI.logued())
             Thread.yield();
         loginGUI.setVisible(false);
-        frame_foro.setVisible(true);
+        peliculasGUI.setVisible(true);
     }
 }
