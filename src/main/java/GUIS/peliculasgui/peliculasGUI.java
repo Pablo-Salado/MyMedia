@@ -6,7 +6,7 @@ package GUIS.peliculasgui;/*
 
 /**
  *
- * @author X430F
+ * @author Pablo Salado Cespedosa
  */
 
 import PeliculasSeries.*;
