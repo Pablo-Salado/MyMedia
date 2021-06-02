@@ -5,21 +5,30 @@
  */
 package GUIS.forogui;
 
+import db.access.DBConnection;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  *
  * @author USUARIO
  */
 public class DiscusionButton extends JButton implements ActionListener {
-    
-    public DiscusionButton(String s)
+    private String Discusion;
+    private JFrame j;
+    private DBConnection con;
+    private String usuario;
+    public DiscusionButton(String texto,JFrame f, DBConnection connect,String usuario)
     {
         Dimension d = new Dimension(703,42);
-        this.setText(s);
+        Discusion = texto;
+        j = f;
+        con = connect;
+        this.usuario = usuario;
+        this.setText(texto);
         this.setPreferredSize(d);
         this.setMaximumSize(d);
         this.setMinimumSize(d);
@@ -27,7 +36,12 @@ public class DiscusionButton extends JButton implements ActionListener {
     {
      @Override
     public void actionPerformed(ActionEvent e) {
-       sText("owo");
+        DiscusionDialog dial = new DiscusionDialog(j,false,Discusion,con,usuario);
+        dial.setTitle(Discusion);
+        dial.setLocationRelativeTo(null);
+        dial.setFocusable(true);
+        dial.requestFocus();
+        dial.setVisible(true);
     }
     });
     }

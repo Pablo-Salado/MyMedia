@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/GUIS/contenidogui/peliculasGUI.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/GUIS/forogui/CrearDisc.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/GUIS/forogui/Frame_Foro.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/GUIS/logingui/LoginGUI.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/GUIS/peliculasgui/peliculasGUI.java" charset="windows-1252" />
   </component>
 </project>

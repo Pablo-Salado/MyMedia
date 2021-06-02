@@ -89,7 +89,7 @@ public  class ContenidoMultimedia {
 
 
     ////////////////////////////////////////////////////////////////
-    //GETTERS
+    //                          GETTERS                           //
     ///////////////////////////////////////////////////////////////
     //INFORMACION A LA QUE TENEMOS ACCESO:["original_language","imdb_id","video","title","backdrop_path","revenue",
     // "genres","popularity","production_countries","id","vote_count","budget","overview","original_title","runtime",
@@ -122,10 +122,6 @@ public  class ContenidoMultimedia {
             }catch ( Exception e){
                 res="no disponible";
             }
-
-
-
-
         }
 
         return res;
@@ -181,9 +177,6 @@ public  class ContenidoMultimedia {
             }catch (Exception e){
                 res="https://i.pinimg.com/736x/b7/d0/b6/b7d0b611d3d927b74c6b71f5e797a5fe.jpg";
             }
-
-
-
         }
         return res;
     }
@@ -198,9 +191,6 @@ public  class ContenidoMultimedia {
             }catch (Exception e){
                 res="no disponible";
             }
-
-
-
         }
         return res;
     }
@@ -214,8 +204,6 @@ public  class ContenidoMultimedia {
             }catch (Exception e){
                 res="no disponible";
             }
-
-
         }
         return res;
     }
@@ -224,14 +212,12 @@ public  class ContenidoMultimedia {
         if(error){
             res="error";
 
-
         }else{
             try{
                 res=(infoPelicula.get("vote_average").toString());
             }catch (Exception e){
                 res="no disponible";
             }
-
 
         }
         return res;
@@ -257,9 +243,5 @@ public  class ContenidoMultimedia {
 
 
     }
-
-
-
-
 
 }

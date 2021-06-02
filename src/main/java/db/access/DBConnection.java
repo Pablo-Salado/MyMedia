@@ -29,4 +29,6 @@ public abstract class DBConnection {
     public abstract void deleteMessage(int id);
     public abstract List<String> getTopicMessages(int idDiscusion);
     public abstract List<String> getTopics(int idForo);
+    public abstract List<String> getTopicsID(int idForo);
+
 }

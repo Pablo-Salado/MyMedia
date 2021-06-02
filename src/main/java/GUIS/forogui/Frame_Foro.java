@@ -1,9 +1,11 @@
 package GUIS.forogui;
 
+import db.access.DBConnection;
 import foro.Foro;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -23,46 +25,54 @@ import javax.swing.JTabbedPane;
 public class Frame_Foro extends javax.swing.JFrame {
     
     
-    private int index = 12;
+    private int index = 0;
     private boolean refrescado = false;
-    private void crearTabs(int n,JPanel p,JTabbedPane pane)
+    private DBConnection db;
+    private List<String> Peliculas,Series;
+    private String usuario;
+    private void crearTabs(List<String> disc,JPanel p,JTabbedPane pane)
     {
-        rellenar(n,p);
+        int n = disc.size();
+        rellenar(n,p,disc);
         n-=10;
         int i = 2;
         while(n>0)
         {
             JPanel aux = new JPanel();
             pane.add(aux,Integer.toString(i));
-            rellenar(n,aux);
+            rellenar(n,aux,disc);
             n-=10;
             i++;
         }
+        index = 0;
     }
-    private void rellenar(int n,JPanel p)
+    private void rellenar(int n,JPanel p,List<String> disc)
     {
         p.setLayout(new BoxLayout(p,BoxLayout.Y_AXIS));
     for(int i = 0;i<Math.min(n, 10);i++)
         {
-        p.add(new DiscusionButton(Integer.toString(i + 1)));
+        p.add(new DiscusionButton(disc.get(i),this,db,usuario));
+        index++;
         }
     }
     /**
      * Creates new form GUIS.forogui.Frame_Foro
      */
     
-    public Frame_Foro() {
+    public Frame_Foro(DBConnection connect,String usuario) {
         initComponents();
         setLocationRelativeTo(null);
-       
-        
+        db = connect;
+        this.usuario = usuario;
         //Crea el foro sin spoilers
-        crearTabs(index,jPanel4,jTabbedPane1);
-        //Crea foro con spoilers
-        crearTabs(index,jPanel5,jTabbedPane2);
-        //System.out.println("f");
+        Peliculas = db.getTopics(1);
+        Series = db.getTopics(2);
+        crearTabs(Peliculas,jPanel4,jTabbedPane1);
        
-       
+    }
+    public String getUsuario()
+    {
+        return usuario;
     }
 
     /**
@@ -92,6 +102,8 @@ public class Frame_Foro extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Foro");
+        setName("Foro"); // NOI18N
         setResizable(false);
 
         jLayeredPane1.setPreferredSize(new java.awt.Dimension(400, 400));
@@ -99,14 +111,14 @@ public class Frame_Foro extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 0, 153));
 
-        jButton1.setText("Foro sin spoilers");
+        jButton1.setText("Foro películas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Foro con spoilers");
+        jButton2.setText("Foro series");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -120,7 +132,7 @@ public class Frame_Foro extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 383, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(74, 74, 74))
         );
@@ -298,14 +310,19 @@ public class Frame_Foro extends javax.swing.JFrame {
     private void RefButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefButtonActionPerformed
         // TODO add your handling code here:
         
-           jTabbedPane1.removeAll();
-           jPanel4.removeAll();
-           jTabbedPane1.add(jPanel4,"1");
-           crearTabs(index,jPanel4,jTabbedPane1);
-        
+          
+        refreshPeliculas();
        
     }//GEN-LAST:event_RefButtonActionPerformed
 
+    private void refreshPeliculas()
+    {
+         jTabbedPane1.removeAll();
+         jPanel4.removeAll();
+         jTabbedPane1.add(jPanel4,"1");
+         Peliculas = db.getTopics(1);
+         crearTabs(Peliculas,jPanel4,jTabbedPane1);
+    }
     private void DisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisButtonActionPerformed
         // TODO add your handling code here:
         CrearDisc j = new CrearDisc(this,true);
@@ -315,7 +332,18 @@ public class Frame_Foro extends javax.swing.JFrame {
         j.setFocusable(true);
         j.requestFocus();
         j.setVisible(true);
-        index++;
+        
+        //Anadir discusion a la base de datos
+        if(j.getAdd())
+        {
+            db.createTopic(j.getNombre(), getUsuario(), 1);
+            refreshPeliculas();
+            //poner boolean a false ya no tenemos que anadir nada más
+            j.setAdd(false);
+        }
+       
+        
+        
        
     }//GEN-LAST:event_DisButtonActionPerformed
 
