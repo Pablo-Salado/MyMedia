@@ -14,10 +14,15 @@ public class CrearDisc extends javax.swing.JDialog {
     /**
      * Creates new form CrearDisc
      */
+    private boolean Add = false;
+    public String getNombre()
+    {
+         return jTextField1.getText();
+    }
     public CrearDisc(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+        errorLabel.setVisible(false);
     }
 
     /**
@@ -34,6 +39,7 @@ public class CrearDisc extends javax.swing.JDialog {
         jTextField1 = new javax.swing.JTextField();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
+        errorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(300, 200));
@@ -48,6 +54,11 @@ public class CrearDisc extends javax.swing.JDialog {
         });
 
         jToggleButton1.setText("Aceptar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton2.setSelected(true);
         jToggleButton2.setText("Cancelar");
@@ -86,20 +97,28 @@ public class CrearDisc extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        errorLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        errorLabel.setForeground(new java.awt.Color(255, 0, 0));
+        errorLabel.setText("¡Título vacío!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(errorLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorLabel)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,6 +126,7 @@ public class CrearDisc extends javax.swing.JDialog {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
@@ -114,6 +134,27 @@ public class CrearDisc extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        if(jTextField1.getText().isBlank())
+        {
+            errorLabel.setVisible(true);
+            
+        }else{
+            setAdd(true);
+            this.dispose();
+        }
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    public void setAdd(boolean bol)
+    {
+        Add = bol;
+    }
+    public boolean getAdd()
+    {
+        return Add;
+    }
     /**
      * @param args the command line arguments
   
@@ -127,6 +168,7 @@ public class CrearDisc extends javax.swing.JDialog {
       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
