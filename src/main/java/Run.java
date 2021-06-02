@@ -24,8 +24,8 @@ public class Run {
             peliculasGUI.setVisible(true);
             while(!peliculasGUI.getForo())
                 Thread.yield();
-
             peliculasGUI.setVisible(false);
+            peliculasGUI.setForo(false);
             frame_foro.setVisible(true);
             while(true)
                 Thread.yield();
