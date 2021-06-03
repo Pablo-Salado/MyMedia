@@ -7,6 +7,7 @@ package GUIS.forogui;
 
 import db.access.DBConnection;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -58,7 +59,25 @@ public class DiscusionDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setTitle(s);
+        this.setResizable(false);
         jLabel1.setText(s);
+       
+        
+        if(s.length()>30)
+        {
+            jLabel1.setFont(new Font("Arial",Font.PLAIN,16));
+        }
+        if(s.length()>75)
+        {
+            jLabel1.setFont(new Font("Arial",Font.PLAIN,12));
+        }
+        /*
+         if(s.length()>125)
+        {
+             s =  s.substring(0, 125);
+             s.concat("...");
+        }
+        */
         this.db = connect;
         this.usuario = usuario;
         this.ID = ID;

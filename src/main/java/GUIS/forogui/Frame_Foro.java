@@ -75,6 +75,7 @@ public class Frame_Foro extends javax.swing.JFrame {
         volver = false;
         initComponents();
         setLocationRelativeTo(null);
+        this.setResizable(false);
         db = connect;
         this.usuario = usuario;
         //Crea el foro sin spoilers
