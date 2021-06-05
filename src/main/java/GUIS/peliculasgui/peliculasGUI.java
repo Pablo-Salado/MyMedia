@@ -28,6 +28,8 @@ public class peliculasGUI extends javax.swing.JFrame {
     boolean foro = false;
     public peliculasGUI() {
         initComponents();
+        ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/logomymedia.png"));
+        setIconImage(img.getImage());
     }
 
     /**

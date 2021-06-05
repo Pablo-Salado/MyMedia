@@ -1,5 +1,6 @@
 GUIS\peliculasgui\peliculasGUI.class
 GUIS\logingui\LoginGUI$7.class
+GUIS\forogui\Frame_Foro$6.class
 foro\Mensaje.class
 GUIS\peliculasgui\peliculasGUI$2.class
 GUIS\forogui\Frame_Foro.class
@@ -8,6 +9,7 @@ GUIS\logingui\LoginGUI$15.class
 GUIS\forogui\Frame_Foro$2.class
 GUIS\forogui\DiscusionButton$1.class
 GUIS\logingui\LoginGUI$3.class
+GUIS\forogui\Frame_Foro$5.class
 GUIS\forogui\CrearDisc$1.class
 GUIS\forogui\DiscusionButton.class
 GUIS\forogui\DiscusionDialog$1.class

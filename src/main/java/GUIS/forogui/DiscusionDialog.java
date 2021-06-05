@@ -61,8 +61,13 @@ public class DiscusionDialog extends javax.swing.JDialog {
         this.setTitle(s);
         this.setResizable(false);
         jLabel1.setText(s);
-       
-        
+         jTabbedPane1.setForeground(new Color(94,99,182));
+        jButton1.setBackground(new Color(153,153,255));
+        jButton1.setOpaque(true);
+        SalirButton.setBackground(new Color(153,153,255));
+        SalirButton.setOpaque(true);
+        jButton2.setBackground(new Color(153,153,255));
+        jButton2.setOpaque(true);
         if(s.length()>30)
         {
             jLabel1.setFont(new Font("Arial",Font.PLAIN,16));
@@ -155,6 +160,7 @@ public class DiscusionDialog extends javax.swing.JDialog {
         jTextArea1.setRows(5);
         jScrollPane3.setViewportView(jTextArea1);
 
+        SalirButton.setForeground(new java.awt.Color(255, 255, 255));
         SalirButton.setText("Salir");
         SalirButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +168,8 @@ public class DiscusionDialog extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(153, 153, 255));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Publicar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,6 +177,7 @@ public class DiscusionDialog extends javax.swing.JDialog {
             }
         });
 
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Refrescar");
 
         ErrorLabel.setText("jLabel2");

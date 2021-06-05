@@ -2,14 +2,19 @@ package GUIS.forogui;
 
 import db.access.DBConnection;
 import foro.Foro;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -73,14 +78,46 @@ public class Frame_Foro extends javax.swing.JFrame {
     }
     public Frame_Foro(DBConnection connect,String usuario) {
         volver = false;
+        this.setUndecorated(true);
         initComponents();
+        
+        ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/logomymedia.png"));
+        setIconImage(img.getImage());
         setLocationRelativeTo(null);
+       
         this.setResizable(false);
+        
         db = connect;
         this.usuario = usuario;
         //Crea el foro sin spoilers
         Peliculas = db.getTopics(1);
      
+
+ 
+        jButton4.setBackground(new Color(153,153,255));
+        jButton4.setOpaque(true);
+        RefButton.setBackground(new Color(153,153,255));
+        RefButton.setOpaque(true);
+        DisButton.setBackground(new Color(153,153,255));
+        DisButton.setOpaque(true);
+     
+       
+        
+     UIManager.put("    TabbedPane.light",Color.white);
+      UIManager.put("  TabbedPane.highlight",Color.white);
+     UIManager.put("   TabbedPane.shadow",Color.white);
+   UIManager.put("     TabbedPane.darkShadow",Color.white);
+   UIManager.put("     TabbedPane.focus",Color.white);
+UIManager.put("TabbedPane.selected",Color.white);
+UIManager.put("TabbedPane.selectedForeground",Color.white);
+UIManager.put("TabbedPane.contentAreaColor",Color.white);
+UIManager.put("TabbedPane.tabAreaBackground",Color.white);
+UIManager.put("control",Color.white);
+        
+        
+        jTabbedPane1.setUI(new javax.swing.plaf.basic.BasicTabbedPaneUI());
+        jTabbedPane1.setForeground(new Color(94,99,182));
+       // jTabbedPane1.setOpaque(true);
         Lista_ID = db.getTopicsID(1);
         crearTabs(Peliculas,jPanel4,jTabbedPane1);
         switchPanels(jScrollPane2);
@@ -112,10 +149,13 @@ public class Frame_Foro extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         RefButton = new javax.swing.JButton();
         DisButton = new javax.swing.JButton();
+        jMinimizar = new javax.swing.JLabel();
+        jSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Foro");
         setName("Foro"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(750, 630));
         setResizable(false);
 
         jLayeredPane1.setPreferredSize(new java.awt.Dimension(400, 400));
@@ -142,7 +182,7 @@ public class Frame_Foro extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(305, Short.MAX_VALUE)
+                .addContainerGap(435, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(172, 172, 172))
         );
@@ -150,10 +190,13 @@ public class Frame_Foro extends javax.swing.JFrame {
         jLayeredPane1.add(jPanel2, "card4");
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jPanel3.setBackground(new java.awt.Color(94, 99, 182));
-        jPanel3.setPreferredSize(new java.awt.Dimension(375, 600));
+        jPanel3.setPreferredSize(new java.awt.Dimension(375, 700));
 
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Volver");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +216,7 @@ public class Frame_Foro extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 706, Short.MAX_VALUE)
+            .addGap(0, 725, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,6 +225,7 @@ public class Frame_Foro extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("1", jPanel4);
 
+        RefButton.setForeground(new java.awt.Color(255, 255, 255));
         RefButton.setText("Refrescar");
         RefButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,10 +233,31 @@ public class Frame_Foro extends javax.swing.JFrame {
             }
         });
 
+        DisButton.setForeground(new java.awt.Color(255, 255, 255));
         DisButton.setText("Iniciar discusión");
         DisButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DisButtonActionPerformed(evt);
+            }
+        });
+
+        jMinimizar.setFont(new java.awt.Font("Verdana", 0, 36)); // NOI18N
+        jMinimizar.setForeground(new java.awt.Color(255, 255, 255));
+        jMinimizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMinimizar.setText("-");
+        jMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMinimizarMouseClicked(evt);
+            }
+        });
+
+        jSalir.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jSalir.setForeground(new java.awt.Color(255, 255, 255));
+        jSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jSalir.setText("x");
+        jSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jSalirMouseClicked(evt);
             }
         });
 
@@ -203,32 +268,38 @@ public class Frame_Foro extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jButton4)
-                        .addGap(72, 72, 72)
+                        .addGap(64, 64, 64)
                         .addComponent(RefButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(DisButton)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(168, 168, 168))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1))
+                    .addComponent(jSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jMinimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(RefButton)
                     .addComponent(DisButton))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("1");
@@ -245,7 +316,7 @@ public class Frame_Foro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
         );
 
         pack();
@@ -297,6 +368,16 @@ public class Frame_Foro extends javax.swing.JFrame {
        
     }//GEN-LAST:event_DisButtonActionPerformed
 
+    private void jMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMinimizarMouseClicked
+        // TODO add your handling code here:
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_jMinimizarMouseClicked
+
+    private void jSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSalirMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jSalirMouseClicked
+
                                     
 
     /**
@@ -317,9 +398,11 @@ public class Frame_Foro extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLabel jMinimizar;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel jSalir;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables

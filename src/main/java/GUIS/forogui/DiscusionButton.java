@@ -6,6 +6,7 @@
 package GUIS.forogui;
 
 import db.access.DBConnection;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,10 +26,13 @@ public class DiscusionButton extends JButton implements ActionListener {
     public DiscusionButton(String texto,JFrame f,
             DBConnection connect,String usuario,int ID)
     {
-        Dimension d = new Dimension(703,44);
+        Dimension d = new Dimension(720,44);
         Discusion = texto;
         j = f;
         con = connect;
+        this.setBackground(new Color(153,153,255));
+        this.setOpaque(true);
+        this.setForeground(Color.white);
         this.usuario = usuario;
         this.ID = ID;
         this.setText(texto);
